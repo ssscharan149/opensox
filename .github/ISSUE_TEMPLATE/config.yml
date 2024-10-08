@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Feature Request and Improvement
+  - name: 💡 Feature Request
     url: https://github.com/orgs/polarsource/discussions/new?category=feature-requests
-    about: Please submit feature requests and improvements here.
+    about: Please submit feature requests here.
+  - name: 🛟 Improvement
+    url: https://github.com/orgs/polarsource/discussions/new?category=feature-requests
+    about: Please submit improvements here.

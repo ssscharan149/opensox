@@ -13,7 +13,7 @@ about: Submit changes to the project for review and inclusion
 <!--- If this pull request is related to a specific issue, reference it here using #issue_number. -->
 <!--- For example, "Fixes #123" or "Addresses #456". -->
 
-This PR fixes #
+fixes #
 
 ## Changes Made
 
@@ -34,6 +34,10 @@ This PR fixes #
 -   Tested on browsers A, B, and C.
 -   ...
 
+### Screenshots/Screenrecordings
+
+<!-- Add Screenshots/Screenrecordings, if applicable, to help explain this pull request. -->
+
 ## Checklist
 
 <!--- Please check the boxes that apply to this pull request. -->
@@ -53,3 +57,5 @@ This PR fixes #
 ---
 
 Thank you for contributing to our project! We appreciate your help in improving it.
+
+🙋🏾🙋🏼 Questions: [Discord Server](https://discord.com/invite/STfRufb32V).
