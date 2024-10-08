@@ -13,8 +13,6 @@ about: Submit changes to the project for review and inclusion
 <!--- If this pull request is related to a specific issue, reference it here using #issue_number. -->
 <!--- For example, "Fixes #123" or "Addresses #456". -->
 
-fixes #
-
 ## Changes Made
 
 <!--- Provide a summary of the changes made in this pull request. -->
