@@ -10,7 +10,7 @@ assignees: ""
 
 <!-- A brief description with a link to the page on the site where you found the issue. -->
 
-## Current Behavior
+### Current Behavior
 
 <!-- A brief description of the current behavior of the issue. -->
 

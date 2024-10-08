@@ -27,6 +27,7 @@
 -   Tested on browsers A, B, and C.
 -   ...
 
+
 ## Screenshots/Screenrecordings
 
 <!-- Add Screenshots/Screenrecordings, if applicable, to help explain this pull request. -->
