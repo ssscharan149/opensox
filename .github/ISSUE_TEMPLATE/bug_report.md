@@ -38,5 +38,3 @@ assignees: ""
 ---
 
 Thank you for contributing to Polar! We appreciate your help in improving it.
-
-🙋🏾🙋🏼 Questions: [Discord Server](https://discord.com/invite/STfRufb32V).

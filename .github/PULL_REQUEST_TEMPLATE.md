@@ -1,8 +1,3 @@
----
-name: Pull Request
-about: Submit changes to the project for review and inclusion
----
-
 ## Description
 
 <!--- Describe the changes introduced by this pull request. -->
@@ -32,7 +27,8 @@ about: Submit changes to the project for review and inclusion
 -   Tested on browsers A, B, and C.
 -   ...
 
-### Screenshots/Screenrecordings
+
+## Screenshots/Screenrecordings
 
 <!-- Add Screenshots/Screenrecordings, if applicable, to help explain this pull request. -->
 
@@ -55,5 +51,3 @@ about: Submit changes to the project for review and inclusion
 ---
 
 Thank you for contributing to our project! We appreciate your help in improving it.
-
-🙋🏾🙋🏼 Questions: [Discord Server](https://discord.com/invite/STfRufb32V).
