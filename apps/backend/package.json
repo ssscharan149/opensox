@@ -8,5 +8,8 @@
   "keywords": [],
   "author": "Ajeet Pratap Singh",
   "license": "ISC",
-  "description": "Find a perfect open source project"
+  "description": "Find a perfect open source project",
+  "dependencies": {
+    "octokit": "^4.0.2"
+  }
 }
