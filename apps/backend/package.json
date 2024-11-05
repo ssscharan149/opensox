@@ -1,15 +1,26 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "server": "nodemon --exec tsx src/index.ts"
   },
   "keywords": [],
   "author": "Ajeet Pratap Singh",
   "license": "ISC",
   "description": "Find a perfect open source project",
   "dependencies": {
+    "express": "^4.21.1",
     "octokit": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "nodemon": "^3.1.7",
+    "tsx": "^4.19.2"
   }
 }
