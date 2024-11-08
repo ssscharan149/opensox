@@ -4,6 +4,8 @@ import apiRouter from "./api_routes.ts"
 const App: Express = express()
 const PORT = 8080
 
+App.use(express.json())
+
 App.get("/test", (req: Request, res: Response) => {
     res.status(200).json({"status": "ok"})
 })
