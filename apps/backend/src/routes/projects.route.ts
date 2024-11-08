@@ -1,7 +1,12 @@
-import express from "express"
-import { authenticateMe } from "../services/project.service.ts"
+import express, {Request, Response} from "express"
+import { fetchRepositories } from "../services/project.service.ts"
 
-const authRouter = express.Router()
-authRouter.get("/gh", authenticateMe)
+const projectsRouter = express.Router()
 
-export default authRouter
+projectsRouter.get("/get-projects", async (req: Request, res: Response) => {
+    const filters = req.body
+    const repos = await fetchRepositories(filters)
+    res.json(repos)
+})
+
+export default projectsRouter
