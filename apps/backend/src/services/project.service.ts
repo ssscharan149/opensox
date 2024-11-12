@@ -113,7 +113,7 @@ export const fetchRepositories = async (
     queryParts.push(`fork:true`);
 
     const searchQueryString = queryParts.join(' ');
-    console.log(searchQueryString)
+    
     const response: GraphQLResponse = await graphqlWithAuth(`
         query($searchQuery: String!, $first: Int!) {
             search(
