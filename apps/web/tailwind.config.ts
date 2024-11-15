@@ -50,7 +50,7 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-			"theme-color": "#5CB8E4"
+			"theme-color": "#9455f4"
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
