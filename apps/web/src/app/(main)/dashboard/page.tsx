@@ -1,9 +1,11 @@
 "use client"
 
+import ProjectsContainer from '@/components/dashboard/ProjectsContainer'
+
 export default function Dashboard() {
     return (
-        <h1>
-            hello ajeet
-        </h1>
+        <div>
+            <ProjectsContainer></ProjectsContainer>
+        </div>
     )
 }
