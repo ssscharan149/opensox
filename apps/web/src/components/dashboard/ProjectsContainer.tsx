@@ -108,8 +108,8 @@ const languageColors: languageColorsTypes = {
 };
 
 const getColor = (color: string): string => {
-    const lowerColorCase = color.toLowerCase()
-    const _color = languageColors[lowerColorCase]
+    const lowerColorCase = color.toLowerCase();
+    const _color = languageColors[lowerColorCase] || 'bg-gray-200 text-gray-800';
     return _color
 }
 
