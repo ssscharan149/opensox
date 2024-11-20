@@ -10,7 +10,17 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
-const projects = [
+interface Project {
+    id: number;
+    name: string;
+    description: string;
+    url: string;
+    avatarUrl: string;
+    totalIssueCount: number;
+    primaryLanguage: string;
+}
+
+const projects: Project[] = [
     {
         "id": 1,
         "name": "public-apis",
@@ -27,7 +37,7 @@ const projects = [
         "url": "https://github.com/public-apis/public-apis",
         "avatarUrl": "https://avatars.githubusercontent.com/u/51121562?v=4",
         "totalIssueCount": 33,
-        "primaryLanguage": "Python"
+        "primaryLanguage": "go"
     },
     {
         "id": 3,
@@ -36,7 +46,7 @@ const projects = [
         "url": "https://github.com/public-apis/public-apis",
         "avatarUrl": "https://avatars.githubusercontent.com/u/51121562?v=4",
         "totalIssueCount": 33,
-        "primaryLanguage": "Python"
+        "primaryLanguage": "typescript"
     },
     {
         "id": 4,
@@ -45,7 +55,7 @@ const projects = [
         "url": "https://github.com/public-apis/public-apis",
         "avatarUrl": "https://avatars.githubusercontent.com/u/51121562?v=4",
         "totalIssueCount": 33,
-        "primaryLanguage": "Python"
+        "primaryLanguage": "rust"
     },
     {
         "id": 5,
@@ -54,9 +64,54 @@ const projects = [
         "url": "https://github.com/public-apis/public-apis",
         "avatarUrl": "https://avatars.githubusercontent.com/u/130738209?v=4",
         "totalIssueCount": 33,
-        "primaryLanguage": "Python"
+        "primaryLanguage": "javascript"
     }
 ]
+
+interface languageColorsTypes {
+    [key: string]: string;
+    javascript: string;
+    typescript: string;
+    python: string;
+    go: string;
+    rust: string;
+    java: string;
+    'c#': string;
+    'c++': string;
+    c: string;
+    php: string;
+    swift: string;
+    kotlin: string;
+    ruby: string;
+    scala: string;
+    html: string;
+    elixir: string;
+}
+
+const languageColors: languageColorsTypes = {
+    javascript: 'bg-yellow-500/15 text-yellow-500',
+    typescript: 'bg-blue-500/15 text-blue-500',
+    python: 'bg-emerald-500/15 text-emerald-500',
+    go: 'bg-cyan-500/15 text-cyan-500',
+    rust: 'bg-orange-500/15 text-orange-500',
+    java: 'bg-red-500/15 text-red-500',
+    'c#': 'bg-purple-500/15 text-purple-500',
+    'c++': 'bg-indigo-500/15 text-indigo-500',
+    c: 'bg-gray-500/15 text-gray-500',
+    php: 'bg-violet-500/15 text-violet-500',
+    swift: 'bg-pink-500/15 text-pink-500',
+    kotlin: 'bg-sky-500/15 text-sky-500',
+    ruby: 'bg-rose-500/15 text-rose-500',
+    scala: 'bg-teal-500/15 text-teal-500',
+    html: 'bg-orange-400/15 text-orange-400',
+    elixir: 'bg-purple-600/15 text-purple-600'
+};
+
+const getColor = (color: string): string => {
+    const lowerColorCase = color.toLowerCase()
+    const _color = languageColors[lowerColorCase]
+    return _color
+}
 
 export default function ProjectsContainer() {
     return (
@@ -95,9 +150,9 @@ export default function ProjectsContainer() {
                                 <TableCell className="text-center">
                                     <Badge
                                         variant="secondary"
-                                        className="bg-emerald-500/15 text-emerald-500"
+                                        className={getColor(project.primaryLanguage)}
                                     >
-                                        Python
+                                        {project.primaryLanguage}
                                     </Badge>
                                 </TableCell>
                             </TableRow>
