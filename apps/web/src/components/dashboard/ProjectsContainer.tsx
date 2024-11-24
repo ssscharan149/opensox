@@ -115,14 +115,14 @@ const getColor = (color: string): string => {
 
 export default function ProjectsContainer() {
     return (
-        <div className="w-full rounded-lg bg-zinc-950 p-4">
+        <div className="w-full rounded-lg p-4">
             <div className="flex items-center justify-between pb-1">
                 <h2 className="text-md font-medium text-white">Projects for you</h2>
             </div>
-            <div className="rounded-lg border border-zinc-800">
+            <div className="rounded-lg border bg-theme-cards border-theme-borders border">
                 <Table>
                     <TableHeader>
-                        <TableRow className="border-zinc-800 hover:bg-zinc-900">
+                        <TableRow className="border-theme-borders border-b hover:bg-zinc-900">
                             <TableHead className="flex text-zinc-400 justify-center items-center">Project</TableHead>
                             <TableHead className="text-zinc-400 text-center">Issues</TableHead>
                             <TableHead className="flex text-zinc-400 justify-center items-center">Language</TableHead>
@@ -132,7 +132,7 @@ export default function ProjectsContainer() {
                         {projects.map((project) => (
                             <TableRow
                                 key={project.id}
-                                className="border-zinc-800 hover:bg-zinc-900"
+                                className="border-theme-borders border-y hover:bg-zinc-900"
                             >
                                 <TableCell className="flex items-center gap-1">
                                     <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
