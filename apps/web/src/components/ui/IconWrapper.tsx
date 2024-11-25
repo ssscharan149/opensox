@@ -11,7 +11,7 @@ export const IconWrapper = ({ children, className, ...props }: IconWrapperProps)
     return (
         <div
             className={cn(
-                "p-0.5 rounded-sm border border-theme-borders hover:bg-gray-100 cursor-pointer",
+                "h-[28px] w-[28px] p-0.5 rounded-sm border border-theme-borders cursor-pointer flex justify-center items-center",
                 className
             )}
             {...props}
