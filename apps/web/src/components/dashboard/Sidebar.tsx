@@ -1,8 +1,6 @@
 "use client"
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import { Button } from "../ui/button"
 import { IconWrapper } from "../ui/IconWrapper"
-import AboutAjeet from "../sidebar/SidebarItem"
 import SidebarItem from "../sidebar/SidebarItem"
 
 export default function Sidebar() {
