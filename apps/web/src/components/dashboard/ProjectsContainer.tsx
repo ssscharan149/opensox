@@ -122,17 +122,17 @@ export default function ProjectsContainer() {
             <div className="rounded-lg border bg-theme-cards border-theme-borders border">
                 <Table>
                     <TableHeader>
-                        <TableRow className="border-theme-borders border-b hover:bg-zinc-900">
-                            <TableHead className="flex text-zinc-400 justify-center items-center">Project</TableHead>
-                            <TableHead className="text-zinc-400 text-center">Issues</TableHead>
-                            <TableHead className="flex text-zinc-400 justify-center items-center">Language</TableHead>
+                        <TableRow className="border-theme-borders border-b">
+                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-theme-color">Project</TableHead>
+                            <TableHead className="text-zinc-400 text-center font-semibold text-theme-color">Issues</TableHead>
+                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-theme-color">Language</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {projects.map((project) => (
                             <TableRow
                                 key={project.id}
-                                className="border-theme-borders border-y hover:bg-zinc-900"
+                                className="border-theme-borders border-y"
                             >
                                 <TableCell className="flex items-center gap-1">
                                     <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
@@ -142,11 +142,11 @@ export default function ProjectsContainer() {
                                             alt={project.name}>
                                         </img>
                                     </div>
-                                    <TableCell className="text-white text-xs">
+                                    <TableCell className="text-white text-xs text-theme-secondary-white">
                                         {project.name}
                                     </TableCell>
                                 </TableCell>
-                                <TableCell className="text-white text-xs text-center">{project.totalIssueCount}</TableCell>
+                                <TableCell className="text-white text-xs text-center text-theme-secondary-white">{project.totalIssueCount}</TableCell>
                                 <TableCell className="text-center">
                                     <Badge
                                         variant="secondary"

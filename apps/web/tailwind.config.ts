@@ -53,7 +53,8 @@ const config: Config = {
   			'theme-color': '#9455f4',
   			'border-color': '#5D6166',
   			'theme-cards': '#141B23',
-  			'theme-borders': 'rgb(75 85 99)'
+  			'theme-borders': 'rgb(75 85 99)',
+			'theme-secondary-white': 'text-slate-400'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
