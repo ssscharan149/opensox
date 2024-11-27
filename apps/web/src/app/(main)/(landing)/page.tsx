@@ -12,7 +12,7 @@ const ajeetClickHandler = (): void => {
       <div className="flex flex-col items-center justify-center w-[90%] h-[60%] space-y-20">
         <div className="flex flex-col items-center justify-center space-y-4">
           <h1 className="text-5xl lg:text-7xl font-extrabold">Opensox</h1>
-          <h1 className="text-xs lg:text-base lg:font-medium font-medium text-theme-color">Find perfect open-source project for yourself</h1>
+          <h1 className="text-xs lg:text-base lg:font-medium font-medium text-theme-color">Find perfect open-source project to contribute.</h1>
         </div>
         <Button className="font-bold">Get Started</Button>
       </div>

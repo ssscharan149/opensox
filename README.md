@@ -1,3 +1,3 @@
 # Opensox
 
-Find perfect open-source project for yourself
+Find perfect open-source project to contribute.

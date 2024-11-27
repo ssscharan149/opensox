@@ -1,14 +1,14 @@
 "use client"
 
 // import ProjectsContainer from '@/components/dashboard/ProjectsContainer'
-// import ProjectsContainer from '@/components/dashboard/ProjectsContainer'
-import FiltersContainer from '@/components/ui/FiltersContainer'
+import ProjectsContainer from '@/components/dashboard/ProjectsContainer'
+// import FiltersContainer from '@/components/ui/FiltersContainer'
 
 export default function Dashboard() {
     return (
         <div className='flex justify-center'>
-            <FiltersContainer></FiltersContainer>
-            {/* <ProjectsContainer></ProjectsContainer> */}
+            {/* <FiltersContainer></FiltersContainer> */}
+            <ProjectsContainer></ProjectsContainer>
         </div>
     )
 }
