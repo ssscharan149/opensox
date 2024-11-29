@@ -8,14 +8,14 @@ import Filter from "./Filter";
 
 export default function FiltersContainer() {
     return (
-        <div className="w-[90%] h-[70vh] flex flex-col rounded-lg border border-theme-borders relative bg-theme-cards">
+        <div className="w-[90%] h-[70vh] flex flex-col rounded-lg border border-ox-gray relative bg-ox-black-1">
             <div
                 id="filter-header"
-                className="flex w-full h-[10%] border-b border-theme-borders justify-between items-center px-2"
+                className="flex w-full h-[10%] border-b border-ox-gray justify-between items-center px-2"
             >
-                <h1 className="text-sm text-theme-color font-semibold">Filters</h1>
+                <h1 className="text-sm text-ox-purple font-semibold">Filters</h1>
                 <IconWrapper>
-                    <XMarkIcon className="size-4 text-theme-color"></XMarkIcon>
+                    <XMarkIcon className="size-4 text-ox-purple"></XMarkIcon>
                 </IconWrapper>
             </div>
 
@@ -38,9 +38,9 @@ export default function FiltersContainer() {
 
             <div
                 id="filter-footer"
-                className="w-full h-[10%] border-t border-theme-borders flex items-center px-2 justify-end"
+                className="w-full h-[10%] border-t border-ox-gray flex items-center px-2 justify-end"
             >
-                <Button className="font-semibold text-white bg-theme-color text-[14px] h-6 w-12 hover:bg-white-500">
+                <Button className="font-semibold text-white bg-ox-purple text-[14px] h-6 w-12 hover:bg-white-500">
                     Search
                 </Button>
             </div>

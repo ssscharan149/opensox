@@ -8,7 +8,7 @@ export default function DashboardLayout({
 }) {
     return (
         <div className="relative">
-            <div className="flex w-full h-16 border-b border-theme-borders">
+            <div className="flex w-full h-16">
                 <DashboardHeader></DashboardHeader>
             </div>
             <main>

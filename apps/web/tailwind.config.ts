@@ -50,11 +50,11 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			'theme-color': '#9455f4',
-  			'border-color': '#5D6166',
-  			'theme-cards': '#141B23',
-  			'theme-borders': 'rgb(75 85 99)',
-			'theme-secondary-white': 'text-slate-400'
+  			'ox-purple': '#9455f4',
+  			'ox-gray': 'rgb(75 85 99)',
+			'ox-white': 'text-slate-400',
+			'ox-black-1': '#0E0E10',
+			'ox-black-2': '#15161A'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

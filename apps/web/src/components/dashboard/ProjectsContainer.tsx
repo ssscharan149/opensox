@@ -119,20 +119,20 @@ export default function ProjectsContainer() {
             <div className="flex items-center justify-between pb-1">
                 <h2 className="text-md font-medium text-white">Projects for you</h2>
             </div>
-            <div className="rounded-lg border bg-theme-cards border-theme-borders border">
+            <div className="rounded-lg border bg-ox-black-1 border-ox-gray border">
                 <Table>
                     <TableHeader>
-                        <TableRow className="border-theme-borders border-b">
-                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-theme-color">Project</TableHead>
-                            <TableHead className="text-zinc-400 text-center font-semibold text-theme-color">Issues</TableHead>
-                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-theme-color">Language</TableHead>
+                        <TableRow className="border-ox-gray border-b">
+                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-ox-purple">Project</TableHead>
+                            <TableHead className="text-zinc-400 text-center font-semibold text-ox-purple">Issues</TableHead>
+                            <TableHead className="flex text-zinc-400 justify-center items-center font-semibold text-ox-purple">Language</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {projects.map((project) => (
                             <TableRow
                                 key={project.id}
-                                className="border-theme-borders border-y"
+                                className="border-ox-gray border-y"
                             >
                                 <TableCell className="flex items-center gap-1">
                                     <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
@@ -142,11 +142,11 @@ export default function ProjectsContainer() {
                                             alt={project.name}>
                                         </img>
                                     </div>
-                                    <TableCell className="text-white text-xs text-theme-secondary-white">
+                                    <TableCell className="text-white text-xs text-ox-white">
                                         {project.name}
                                     </TableCell>
                                 </TableCell>
-                                <TableCell className="text-white text-xs text-center text-theme-secondary-white">{project.totalIssueCount}</TableCell>
+                                <TableCell className="text-white text-xs text-center text-ox-white">{project.totalIssueCount}</TableCell>
                                 <TableCell className="text-center">
                                     <Badge
                                         variant="secondary"
