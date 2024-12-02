@@ -9,7 +9,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="h-full w-[25%] z-50 flex flex-col rounded-r-lg bg-ox-black-1">
+        <div className="h-full z-50 flex flex-col rounded-r-lg bg-ox-black-1">
             {/* <div className="sidebar-header flex justify-between px-2 py-3 border-b border-ox-gray">
                 <div className="flex items-center space-x-3">
                     <h1 className="text-md font-semibold text-ox-purple">Opensox</h1>
