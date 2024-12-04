@@ -8,6 +8,10 @@ import Filter from "./Filter";
 import { useFilterStore } from "@/store/useFilterStore";
 
 export default function FiltersContainer() {
+  const handleClickWipFilters = () => {
+    window.alert("Coming very soon! :)")
+  };
+
   const { toggleShowFilters } = useFilterStore();
   return (
     <div className="w-80 h-96 z-10 flex flex-col rounded-lg border border-ox-gray absolute bg-ox-black-1 right-20">
@@ -48,10 +52,25 @@ export default function FiltersContainer() {
               "Elixir",
             ]}
           ></Filter>
-          <Filter filterName="Popularity" filters={["Very low", "Low", "Moderate", "High", "Very high"]}></Filter>
-          <Filter filterName="Competition" filters={["Very low", "Low", "Moderate", "High", "Very high"]}></Filter>
-          <Filter filterName="Stage" filters={["Very early", "Early", "Emerging", "Established"]}></Filter>
-          <Filter filterName="Activity" filters={["Highest", "High", "Normal", "low"]}></Filter>
+          <Filter
+            filterName="Popularity"
+            filters={["Very low", "Low", "Moderate", "High", "Very high"]}
+          ></Filter>
+          <Filter
+            filterName="Competition"
+            filters={["Very low", "Low", "Moderate", "High", "Very high"]}
+          ></Filter>
+          <Filter
+            filterName="Stage"
+            filters={["Very early", "Early", "Emerging", "Established"]}
+          ></Filter>
+          <Filter
+            filterName="Activity"
+            filters={["Highest", "High", "Normal", "low"]}
+          ></Filter>
+          <Filter filterName="Hire contributors" filters={[]} onClick={handleClickWipFilters}></Filter>
+          <Filter filterName="Funding" filters={[]} onClick={handleClickWipFilters}></Filter>
+          <Filter filterName="Trending" filters={[]} onClick={handleClickWipFilters}></Filter>
         </Accordion>
       </div>
 
