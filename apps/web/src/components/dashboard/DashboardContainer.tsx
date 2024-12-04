@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import ProjectsContainer from "./ProjectsContainer";
 
