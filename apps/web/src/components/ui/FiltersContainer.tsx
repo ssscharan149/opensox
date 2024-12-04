@@ -26,36 +26,32 @@ export default function FiltersContainer() {
 
       <div className="flex-1 overflow-y-auto">
         <Accordion type="multiple" className="w-full">
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
           <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
+            filterName="Tech stack"
+            filters={[
+              "Javascript",
+              "Typescript",
+              "Python",
+              "Go",
+              "Rust",
+              "Java",
+              "C#",
+              "C++",
+              "C",
+              "Php",
+              "Swift",
+              "Kotlin",
+              "Ruby",
+              "Scala",
+              "Html",
+              "C++",
+              "Elixir",
+            ]}
           ></Filter>
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
-          <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
-          ></Filter>
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
-          <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
-          ></Filter>
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
-          <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
-          ></Filter>
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
-          <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
-          ></Filter>
-          <Filter filterName="Tech stack" filters={["py", "ts", "js"]}></Filter>
-          <Filter
-            filterName="Competitiveness"
-            filters={["high", "low"]}
-          ></Filter>
+          <Filter filterName="Popularity" filters={["Very low", "Low", "Moderate", "High", "Very high"]}></Filter>
+          <Filter filterName="Competition" filters={["Very low", "Low", "Moderate", "High", "Very high"]}></Filter>
+          <Filter filterName="Stage" filters={["Very early", "Early", "Emerging", "Established"]}></Filter>
+          <Filter filterName="Activity" filters={["Highest", "High", "Normal", "low"]}></Filter>
         </Accordion>
       </div>
 
