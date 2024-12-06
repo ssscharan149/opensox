@@ -6,13 +6,15 @@ import { IconWrapper } from "./IconWrapper";
 import { Accordion } from "./accordion";
 import Filter from "./Filter";
 import { useFilterStore } from "@/store/useFilterStore";
+import { useFilterInputStore } from "@/store/useFilterInputStore";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
-    window.alert("Coming very soon! :)")
+    window.alert("Coming very soon! :)");
   };
 
   const { toggleShowFilters } = useFilterStore();
+  const { filters } = useFilterInputStore();
   return (
     <div className="w-80 h-96 z-10 flex flex-col rounded-lg border border-ox-gray absolute bg-ox-black-1 right-20">
       <div
@@ -48,7 +50,6 @@ export default function FiltersContainer() {
               "Ruby",
               "Scala",
               "Html",
-              "C++",
               "Elixir",
             ]}
           ></Filter>
@@ -68,9 +69,21 @@ export default function FiltersContainer() {
             filterName="Activity"
             filters={["Highest", "High", "Normal", "low"]}
           ></Filter>
-          <Filter filterName="Hire contributors" filters={[]} onClick={handleClickWipFilters}></Filter>
-          <Filter filterName="Funding" filters={[]} onClick={handleClickWipFilters}></Filter>
-          <Filter filterName="Trending" filters={[]} onClick={handleClickWipFilters}></Filter>
+          <Filter
+            filterName="Hire contributors"
+            filters={[]}
+            onClick={handleClickWipFilters}
+          ></Filter>
+          <Filter
+            filterName="Funding"
+            filters={[]}
+            onClick={handleClickWipFilters}
+          ></Filter>
+          <Filter
+            filterName="Trending"
+            filters={[]}
+            onClick={handleClickWipFilters}
+          ></Filter>
         </Accordion>
       </div>
 
@@ -78,7 +91,10 @@ export default function FiltersContainer() {
         id="filter-footer"
         className="w-full h-[10%] border-t border-ox-gray flex items-center px-2 justify-end"
       >
-        <Button className="font-semibold text-white bg-ox-purple text-[14px] h-6 w-12 hover:bg-white-500">
+        <Button
+          className="font-semibold text-white bg-ox-purple text-[14px] h-6 w-12 hover:bg-white-500"
+          onClick={() => console.log(filters)}
+        >
           Search
         </Button>
       </div>
