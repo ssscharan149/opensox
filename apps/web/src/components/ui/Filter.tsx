@@ -13,6 +13,8 @@ export default function Filter({
   filters: string[];
   onClick?: () => void;
 }) {
+  const inputData = {};
+  const recordFilterInput = (filter: string) => {};
   return (
     <div onClick={onClick}>
       <AccordionItem value={filterName} className="px-3">
@@ -24,9 +26,9 @@ export default function Filter({
             {filters.map((filter) => (
               <div key={filter} className="flex items-center space-x-2">
                 <RadioGroupItem value={filter} id={filter} />
-                <Label 
-                  htmlFor={filter} 
-                  className="text-xs font-normal cursor-pointer"
+                <Label
+                  htmlFor={filter}
+                  onClick={() => recordFilterInput(filter)}
                 >
                   {filter}
                 </Label>
