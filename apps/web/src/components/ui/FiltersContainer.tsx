@@ -9,7 +9,6 @@ import { useFilterStore } from "@/store/useFilterStore";
 import { useFilterInputStore } from "@/store/useFilterInputStore";
 import { useGetProjects } from "@/hooks/useGetProjects";
 
-
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
     window.alert("Coming very soon! :)");
@@ -28,7 +27,9 @@ export default function FiltersContainer() {
   }
   };
 
-  // create a function that take user inputs tailer to what api expects and the
+  // create shared types in nextjs
+  // pass the filters to the getProjects function
+  // create a function that take user inputs, tailer to what api expects and the
 
   return (
     <div className="w-80 h-96 z-10 flex flex-col rounded-lg border border-ox-gray absolute bg-ox-black-1 right-20">

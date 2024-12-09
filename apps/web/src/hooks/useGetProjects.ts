@@ -1,53 +1,9 @@
 import { useCallback } from "react";
 const BASE_URL = "http://localhost:8000";
-
-interface DateRange {
-  start: string;
-  end?: string;
-}
-
-interface StarRange {
-  min?: number;
-  max?: number;
-  custom?: number;
-}
-
-interface ForkRange {
-  min?: number;
-  max?: number;
-}
-
-interface FilterProps {
-  language?: string;
-  stars?: StarRange;
-  forks?: ForkRange;
-  lastCommit?: string;
-  dateCreated?: DateRange;
-}
-
-interface Owner {
-  avatarUrl: string;
-}
-
-interface Issues {
-  totalCount: number;
-}
-
-interface PrimaryLanguage {
-  name: string;
-}
-
-interface Project {
-  name: string;
-  description: string;
-  url: string;
-  owner: Owner;
-  issues: Issues;
-  primaryLanguage: PrimaryLanguage;
-}
+import { FilterProps, ProjectProps } from "@/types/filter";
 
 export const useGetProjects = () => {
-  const func = useCallback(async (filters: FilterProps): Promise<Project[]> => {
+  const func = useCallback(async (filters: FilterProps): Promise<ProjectProps[]> => {
     const response = await fetch(`${BASE_URL}/projects`, {
       method: "GET",
       headers: {
@@ -55,7 +11,7 @@ export const useGetProjects = () => {
       },
       body: JSON.stringify(filters),
     });
-    const data: Project[] = await response.json();
+    const data: ProjectProps[] = await response.json();
     return data;
   }, []);
   return func;
