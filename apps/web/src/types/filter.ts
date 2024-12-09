@@ -1,3 +1,6 @@
+// these type already exists in the shared package, so we can reuse them in the web and backend packages 
+// and delete these
+
 export type DateRange= {
   start: string;
   end?: string;

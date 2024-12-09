@@ -1,66 +1,43 @@
 import { graphql } from "@octokit/graphql";
 import dotenv from "dotenv";
+import { FilterProps } from "@opensox/shared/src";
 
 dotenv.config();
 
 const GH_PAT = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 
 const graphqlWithAuth = graphql.defaults({
-    headers: {
-        authorization: `token ${GH_PAT}`,
-    },
+  headers: {
+    authorization: `token ${GH_PAT}`,
+  },
 });
 
-interface DateRange {
-    start: string;
-    end?: string;
-}
-
-interface StarRange {
-    min?: number;
-    max?: number;
-    custom?: number;
-}
-
-interface ForkRange {
-    min?: number;
-    max?: number;
-}
-
-interface FilterTypes {
-    language?: string;
-    stars?: StarRange;
-    forks?: ForkRange;
-    lastCommit?: string;
-    dateCreated?: DateRange;
-}
-
 interface OptionsTypes {
-    sort?: 'stars';
-    order?: 'desc';
-    per_page?: number;
-    page?: number;
+  sort?: "stars";
+  order?: "desc";
+  per_page?: number;
+  page?: number;
 }
 
 interface Repository {
+  name: string;
+  url: string;
+  owner: {
+    avatarUrl: string;
+  };
+  issues: {
+    totalCount: number;
+  };
+  primaryLanguage: {
     name: string;
-    url: string; 
-    owner: {
-        avatarUrl: string;
-    };
-    issues: {
-        totalCount: number; 
-    };
-    primaryLanguage: {
-        name: string;
-    } | null;
+  } | null;
 }
 
 interface GraphQLResponse {
-    search: {
-        nodes: Repository[];
-        repositoryCount: number;
-    };
+  search: {
+    nodes: Repository[];
+    repositoryCount: number;
+  };
 }
 
 // export const authenticateMe = async (): Promise<void> => {
@@ -75,46 +52,46 @@ interface GraphQLResponse {
 // };
 
 export const fetchRepositories = async (
-    filters: FilterTypes = {},
-    options: OptionsTypes = {}
+  filters: FilterProps = {},
+  options: OptionsTypes = {}
 ): Promise<Repository[]> => {
+  const queryParts: string[] = [];
 
-    const queryParts: string[] = [];
+  if (filters.language) {
+    queryParts.push(`language:${filters.language}`);
+  }
 
-    if (filters.language) {
-        queryParts.push(`language:${filters.language}`);
+  if (filters.stars) {
+    queryParts.push(`stars:${filters.stars.min}..${filters.stars.max}`);
+  }
+
+  if (filters.forks) {
+    queryParts.push(`forks:${filters.forks.min}..${filters.forks.max}`);
+  }
+
+  if (filters.lastCommit) {
+    queryParts.push(`pushed:${filters.lastCommit}`);
+  }
+
+  if (filters.dateCreated) {
+    if (filters.dateCreated.start) {
+      queryParts.push(`created:>=${filters.dateCreated.start}`);
     }
-
-    if (filters.stars) {
-        queryParts.push(`stars:${filters.stars.min}..${filters.stars.max}`);
+    if (filters.dateCreated.end) {
+      queryParts.push(`created:<=${filters.dateCreated.end}`);
     }
+  }
 
-    if (filters.forks) {
-        queryParts.push(`forks:${filters.forks.min}..${filters.forks.max}`);
-    }
+  // Default fields to filter contributor friendly repos
 
-    if (filters.lastCommit) {
-        queryParts.push(`pushed:${filters.lastCommit}`);
-    }
+  queryParts.push(`is:organization`);
+  queryParts.push(`is:public`);
+  queryParts.push(`fork:true`);
 
-    if (filters.dateCreated) {
-        if (filters.dateCreated.start) {
-            queryParts.push(`created:>=${filters.dateCreated.start}`);
-        }
-        if (filters.dateCreated.end) {
-            queryParts.push(`created:<=${filters.dateCreated.end}`);
-        }
-    }
+  const searchQueryString = queryParts.join(" ");
 
-    // Default fields to filter contributor friendly repos
-
-    queryParts.push(`is:organization`);
-    queryParts.push(`is:public`);
-    queryParts.push(`fork:true`);
-
-    const searchQueryString = queryParts.join(' ');
-    
-    const response: GraphQLResponse = await graphqlWithAuth(`
+  const response: GraphQLResponse = await graphqlWithAuth(
+    `
         query($searchQuery: String!, $first: Int!) {
             search(
                 query: $searchQuery,
@@ -140,10 +117,12 @@ export const fetchRepositories = async (
                 repositoryCount
             }
         }
-    `, {
-        searchQuery: searchQueryString,
-        first: options.per_page || 30,
-    });
+    `,
+    {
+      searchQuery: searchQueryString,
+      first: options.per_page || 30,
+    }
+  );
 
-    return response.search.nodes;
+  return response.search.nodes;
 };
