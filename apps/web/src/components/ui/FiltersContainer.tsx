@@ -7,6 +7,8 @@ import { Accordion } from "./accordion";
 import Filter from "./Filter";
 import { useFilterStore } from "@/store/useFilterStore";
 import { useFilterInputStore } from "@/store/useFilterInputStore";
+import { useGetProjects } from "@/hooks/useGetProjects";
+
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
@@ -15,6 +17,19 @@ export default function FiltersContainer() {
 
   const { toggleShowFilters } = useFilterStore();
   const { filters } = useFilterInputStore();
+  const getProjects = useGetProjects();
+
+  const handleSearchProjects = async () => {
+    try  {
+      const projects = await getProjects(filters);
+      console.log(projects);
+    } catch (error) {
+      console.error(error);
+  }
+  };
+
+  // create a function that take user inputs tailer to what api expects and the
+
   return (
     <div className="w-80 h-96 z-10 flex flex-col rounded-lg border border-ox-gray absolute bg-ox-black-1 right-20">
       <div
