@@ -69,17 +69,12 @@ export const fetchRepositories = async (
     queryParts.push(`forks:${filters.forks.min}..${filters.forks.max}`);
   }
 
-  if (filters.lastCommit) {
-    queryParts.push(`pushed:${filters.lastCommit}`);
+  if (filters.pushed) {
+    queryParts.push(`pushed:${filters.pushed}`);
   }
 
-  if (filters.dateCreated) {
-    if (filters.dateCreated.start) {
-      queryParts.push(`created:>=${filters.dateCreated.start}`);
-    }
-    if (filters.dateCreated.end) {
-      queryParts.push(`created:<=${filters.dateCreated.end}`);
-    }
+  if (filters.created) {
+    queryParts.push(`created:${filters.created}`);
   }
 
   // Default fields to filter contributor friendly repos

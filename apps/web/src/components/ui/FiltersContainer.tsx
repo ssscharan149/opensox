@@ -19,15 +19,14 @@ export default function FiltersContainer() {
   const getProjects = useGetProjects();
 
   const handleSearchProjects = async () => {
-    try  {
+    try {
       const projects = await getProjects(filters);
       console.log(projects);
     } catch (error) {
       console.error(error);
-  }
+    }
   };
 
-  // create shared types in nextjs
   // pass the filters to the getProjects function
   // create a function that take user inputs, tailer to what api expects and the
 
