@@ -73,9 +73,9 @@ const userInputValues: UserFilterObjProps = {
     "Very high": { min: "2001" },
   },
   Stage: {
-    "Very early": `>=${getDateFromPast(7)}`, // within this week
-    Early: `>=${getDateFromPast(30)}`, // within this month
-    Emerging: `>=${getDateFromPast(365)}`, // within this year
+    "Very early": `>=${getDateFromPast(180)}`, // within 6 months
+    Early: `>=${getDateFromPast(365)}`, // within this year
+    Emerging: `>=${getDateFromPast(913)}`, // within this 2.5 years
     Established: `>=${getDateFromPast(1825)}`, // within last 5 years
   },
   Activity: {
@@ -86,25 +86,25 @@ const userInputValues: UserFilterObjProps = {
   },
 };
 
-// USER INPUT
+// // USER INPUT EXAMPLE
 
-const userInput = {
-  "Tech stack": "Go",
-  Popularity: "High",
-  Competition: "Low",
-  Stage: "Early",
-  Activity: "Highest",
-};
+// const userInput = {
+//   "Tech stack": "Python",
+//   Popularity: "Low",
+//   Competition: "High",
+//   Stage: "Very early",
+//   Activity: "Normal",
+// };
 
-// API INPUT
+// API INPUT EXAMPLE
 
-const apiInput = {
-  language: "python",
-  stars: { min: "100", max: "2000" },
-  forks: { min: "50", max: "1000" },
-  pushed: ">=2024-12-08",
-  created: ">=2024-12-12",
-};
+// const apiInput = {
+//   language: "python",
+//   stars: { min: "100", max: "2000" },
+//   forks: { min: "50", max: "1000" },
+//   pushed: ">=2024-12-08",
+//   created: ">=2024-12-12",
+// };
 
 export const userInputToApiInput = (
   filter: UserInputFilterProps
