@@ -4,20 +4,20 @@ export type DateRange = {
 }
 
 export type StarRange = {
-    min?: number;
-    max?: number;
-    custom?: number;
+    min?: string;
+    max?: string;
+    custom?: string;
 }
 
 export type ForkRange = {
-    min?: number;
-    max?: number;
+    min?: string;
+    max?: string;
 }
 
 export type FilterProps = {
     language?: string;
     stars?: StarRange;
     forks?: ForkRange;
-    lastCommit?: string;
-    dateCreated?: DateRange;
+    pushed?: string;
+    created?: string;
 }
