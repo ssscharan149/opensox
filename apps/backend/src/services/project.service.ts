@@ -1,6 +1,6 @@
 import { graphql } from "@octokit/graphql";
 import dotenv from "dotenv";
-import { FilterProps } from "@opensox/shared/src";
+import { FilterProps } from "@opensox/shared/types";
 
 dotenv.config();
 

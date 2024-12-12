@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { ProjectProps } from "@/types/filter";
-import { FilterProps } from "@opensox/shared/src";
+import { FilterProps } from "@opensox/shared/types";
 
 const BASE_URL = "http://localhost:8000";
 
