@@ -1,4 +1,4 @@
-import { UserInputFilterProps } from "@/types/filter";
+import { UserInputFilterProps, DashboardProjectsProps } from "@/types";
 import { FilterProps, RepositoryProps } from "@opensox/shared/types";
 
 const getDateFromPast = (days: number): string => {
@@ -140,7 +140,7 @@ export const convertUserInputToApiInput = (
 export const convertApiOutputToUserOutput = (
   response: RepositoryProps[],
   filters: UserInputFilterProps
-) => {
+): DashboardProjectsProps[] => {
   const data = response.map((item) => ({
     id: item.id,
     name: item.name,
@@ -148,11 +148,11 @@ export const convertApiOutputToUserOutput = (
     url: item.url,
     avatarUrl: item.owner.avatarUrl,
     totalIssueCount: item.issues.totalCount,
-    primaryLanguage: item.primaryLanguage?.name,
-    popularity: filters.Popularity,
-    stage: filters.Stage,
-    competition: filters.Competition,
-    activity: filters.Activity,
+    primaryLanguage: item.primaryLanguage.name,
+    popularity: filters.Popularity || "",
+    stage: filters.Stage || "",
+    competition: filters.Competition || "",
+    activity: filters.Activity || "",
   }));
   return data;
 };

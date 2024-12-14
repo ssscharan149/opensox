@@ -18,7 +18,7 @@ export type RepositoryProps = {
   };
   primaryLanguage: {
     name: string;
-  } | null;
+  };
 };
 
 export type GraphQLResponseProps = {
