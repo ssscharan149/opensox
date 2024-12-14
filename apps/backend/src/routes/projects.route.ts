@@ -1,12 +1,12 @@
-import express, {Request, Response} from "express"
-import { fetchRepositories } from "../services/project.service.ts"
+import express, { Request, Response } from "express";
+import { fetchRepositories } from "../services/project.service.ts";
 
-const projectsRouter = express.Router()
+const projectsRouter = express.Router();
 
-projectsRouter.get("/get_projects", async (req: Request, res: Response) => {
-    const filters = req.body
-    const repos = await fetchRepositories(filters)
-    res.json(repos)
-})
+projectsRouter.post("/get_projects", async (req: Request, res: Response) => {
+  const filters = req.body;
+  const repos = await fetchRepositories(filters);
+  res.json(repos);
+});
 
-export default projectsRouter
+export default projectsRouter;

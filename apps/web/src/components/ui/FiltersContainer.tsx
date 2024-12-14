@@ -8,6 +8,7 @@ import Filter from "./Filter";
 import { useFilterStore } from "@/store/useFilterStore";
 import { useFilterInputStore } from "@/store/useFilterInputStore";
 import { useGetProjects } from "@/hooks/useGetProjects";
+import { convertUserInputToApiInput } from "@/utils/inputConverter";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
@@ -20,8 +21,10 @@ export default function FiltersContainer() {
 
   const handleSearchProjects = async () => {
     try {
-      const projects = await getProjects(filters);
-      console.log(projects);
+      const modifiedFilters = convertUserInputToApiInput(filters);
+      const response = await getProjects(modifiedFilters);
+      const projects = response;
+      console.log("projects", projects);
     } catch (error) {
       console.error(error);
     }
@@ -108,7 +111,7 @@ export default function FiltersContainer() {
       >
         <Button
           className="font-semibold text-white bg-ox-purple text-[14px] h-6 w-12 hover:bg-white-500"
-          onClick={() => console.log(filters)}
+          onClick={handleSearchProjects}
         >
           Search
         </Button>
