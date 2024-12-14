@@ -8,7 +8,10 @@ import Filter from "./Filter";
 import { useFilterStore } from "@/store/useFilterStore";
 import { useFilterInputStore } from "@/store/useFilterInputStore";
 import { useGetProjects } from "@/hooks/useGetProjects";
-import { convertUserInputToApiInput } from "@/utils/inputConverter";
+import {
+  convertUserInputToApiInput,
+  convertApiOutputToUserOutput,
+} from "@/utils/converter";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
@@ -24,14 +27,12 @@ export default function FiltersContainer() {
       const modifiedFilters = convertUserInputToApiInput(filters);
       const response = await getProjects(modifiedFilters);
       const projects = response;
-      console.log("projects", projects);
+      const modifiedProjects = convertApiOutputToUserOutput(projects)
+      console.log("projects", modifiedProjects);
     } catch (error) {
       console.error(error);
     }
   };
-
-  // pass the filters to the getProjects function
-  // create a function that take user inputs, tailer to what api expects and the
 
   return (
     <div className="w-80 h-96 z-10 flex flex-col rounded-lg border border-ox-gray absolute bg-ox-black-1 right-20">

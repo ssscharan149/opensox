@@ -1,5 +1,5 @@
 import { UserInputFilterProps } from "@/types/filter";
-import { FilterProps } from "@opensox/shared/types";
+import { FilterProps, RepositoryProps } from "@opensox/shared/types";
 
 const getDateFromPast = (days: number): string => {
   const now = new Date();
@@ -135,4 +135,16 @@ export const convertUserInputToApiInput = (
   }
 
   return data as FilterProps;
+};
+
+export const convertApiOutputToUserOutput = (response: RepositoryProps[]) => {
+  const data = response.map((item) => ({
+    id: item.id,
+    name: item.name,
+    url: item.url,
+    avatarUrl: item.owner.avatarUrl,
+    totalIssueCount: item.issues.totalCount,
+    primaryLanguage: item.primaryLanguage?.name,
+  }));
+  return data;
 };
