@@ -27,8 +27,9 @@ export default function FiltersContainer() {
       const modifiedFilters = convertUserInputToApiInput(filters);
       const response = await getProjects(modifiedFilters);
       const projects = response;
-      const modifiedProjects = convertApiOutputToUserOutput(projects)
+      const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
       console.log("projects", modifiedProjects);
+      console.log("filters", filters);
     } catch (error) {
       console.error(error);
     }
@@ -86,7 +87,7 @@ export default function FiltersContainer() {
           ></Filter>
           <Filter
             filterName="Activity"
-            filters={["Highest", "High", "Normal", "low"]}
+            filters={["Highest", "High", "Normal", "Low"]}
           ></Filter>
           <Filter
             filterName="Hire contributors"

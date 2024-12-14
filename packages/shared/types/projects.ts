@@ -8,6 +8,7 @@ export type OptionsTypesProps = {
 export type RepositoryProps = {
   id: string;
   name: string;
+  description: string;
   url: string;
   owner: {
     avatarUrl: string;

@@ -137,14 +137,22 @@ export const convertUserInputToApiInput = (
   return data as FilterProps;
 };
 
-export const convertApiOutputToUserOutput = (response: RepositoryProps[]) => {
+export const convertApiOutputToUserOutput = (
+  response: RepositoryProps[],
+  filters: UserInputFilterProps
+) => {
   const data = response.map((item) => ({
     id: item.id,
     name: item.name,
+    description: item.description,
     url: item.url,
     avatarUrl: item.owner.avatarUrl,
     totalIssueCount: item.issues.totalCount,
     primaryLanguage: item.primaryLanguage?.name,
+    popularity: filters.Popularity,
+    stage: filters.Stage,
+    competition: filters.Competition,
+    activity: filters.Activity,
   }));
   return data;
 };
