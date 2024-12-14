@@ -115,7 +115,7 @@ export const fetchRepositories = async (
     `,
     {
       searchQuery: searchQueryString,
-      first: options.per_page || 30,
+      first: options.per_page || 100,
     }
   );
 
