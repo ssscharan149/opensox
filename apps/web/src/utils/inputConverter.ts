@@ -106,7 +106,7 @@ const userInputValues: UserFilterObjProps = {
 //   created: ">=2024-12-12",
 // };
 
-export const userInputToApiInput = (
+export const convertUserInputToApiInput = (
   filter: UserInputFilterProps
 ): FilterProps => {
   const data: Partial<FilterProps> = {};
