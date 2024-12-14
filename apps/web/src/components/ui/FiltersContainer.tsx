@@ -12,6 +12,9 @@ import {
   convertUserInputToApiInput,
   convertApiOutputToUserOutput,
 } from "@/utils/converter";
+import { useRouter } from "next/navigation";
+import { useRenderProjects } from "@/store/useRenderProjectsStore";
+import { useProjectsData } from "@/store/useProjectsDataStore";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
@@ -19,8 +22,11 @@ export default function FiltersContainer() {
   };
 
   const { toggleShowFilters } = useFilterStore();
+  const { setRenderProjects } = useRenderProjects();
   const { filters } = useFilterInputStore();
+  const { setData } = useProjectsData();
   const getProjects = useGetProjects();
+  const router = useRouter();
 
   const handleSearchProjects = async () => {
     try {
@@ -30,6 +36,9 @@ export default function FiltersContainer() {
       const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
       console.log("projects", modifiedProjects);
       console.log("filters", filters);
+      // router.push("/projects");
+      setData(modifiedProjects);
+      setRenderProjects(true);
     } catch (error) {
       console.error(error);
     }

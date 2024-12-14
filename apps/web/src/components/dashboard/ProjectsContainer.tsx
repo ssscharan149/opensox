@@ -9,88 +9,79 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { DashboardProjectsProps } from "@/types";
 
-interface Project {
-  id: number;
-  name: string;
-  description: string;
-  url: string;
-  avatarUrl: string;
-  totalIssueCount: number;
-  primaryLanguage: string;
-  popularity: string;
-  stage: string;
-  competition: string;
-  activity: string;
-}
+// const projects: DashboardProjectsProps[] = [
+//   {
+//     id: 1,
+//     name: "public-apis",
+//     description: "A collective list of free APIs",
+//     url: "https://github.com/public-apis/public-apis",
+//     avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
+//     totalIssueCount: 33,
+//     primaryLanguage: "Python",
+//     popularity: "very low",
+//     stage: "very early",
+//     competition: "very low",
+//     activity: "highest",
+//   },
+//   {
+//     id: 2,
+//     name: "public-apis",
+//     description: "A collective list of free APIs",
+//     url: "https://github.com/public-apis/public-apis",
+//     avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
+//     totalIssueCount: 33,
+//     primaryLanguage: "Go",
+//     popularity: "low",
+//     stage: "very early",
+//     competition: "very low",
+//     activity: "highest",
+//   },
+//   {
+//     id: 3,
+//     name: "public-apis",
+//     description: "A collective list of free APIs",
+//     url: "https://github.com/public-apis/public-apis",
+//     avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
+//     totalIssueCount: 33,
+//     primaryLanguage: "TypeScript",
+//     popularity: "moderate",
+//     stage: "very early",
+//     competition: "very low",
+//     activity: "highest",
+//   },
+//   {
+//     id: 4,
+//     name: "public-apis",
+//     description: "A collective list of free APIs",
+//     url: "https://github.com/public-apis/public-apis",
+//     avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
+//     totalIssueCount: 33,
+//     primaryLanguage: "Rust",
+//     popularity: "high",
+//     stage: "very early",
+//     competition: "very low",
+//     activity: "highest",
+//   },
+//   {
+//     id: 5,
+//     name: "public-apis",
+//     description: "A collective list of free APIs",
+//     url: "https://github.com/public-apis/public-apis",
+//     avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
+//     totalIssueCount: 33,
+//     primaryLanguage: "JavaScript",
+//     popularity: "very high",
+//     stage: "very early",
+//     competition: "very low",
+//     activity: "highest",
+//   },
+// ];
 
-const projects: Project[] = [
-  {
-    id: 1,
-    name: "public-apis",
-    description: "A collective list of free APIs",
-    url: "https://github.com/public-apis/public-apis",
-    avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
-    totalIssueCount: 33,
-    primaryLanguage: "Python",
-    popularity: "very low",
-    stage: "very early",
-    competition: "very low",
-    activity: "highest",
-  },
-  {
-    id: 2,
-    name: "public-apis",
-    description: "A collective list of free APIs",
-    url: "https://github.com/public-apis/public-apis",
-    avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
-    totalIssueCount: 33,
-    primaryLanguage: "Go",
-    popularity: "low",
-    stage: "very early",
-    competition: "very low",
-    activity: "highest",
-  },
-  {
-    id: 3,
-    name: "public-apis",
-    description: "A collective list of free APIs",
-    url: "https://github.com/public-apis/public-apis",
-    avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
-    totalIssueCount: 33,
-    primaryLanguage: "TypeScript",
-    popularity: "moderate",
-    stage: "very early",
-    competition: "very low",
-    activity: "highest",
-  },
-  {
-    id: 4,
-    name: "public-apis",
-    description: "A collective list of free APIs",
-    url: "https://github.com/public-apis/public-apis",
-    avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
-    totalIssueCount: 33,
-    primaryLanguage: "Rust",
-    popularity: "high",
-    stage: "very early",
-    competition: "very low",
-    activity: "highest",
-  },
-  {
-    id: 5,
-    name: "public-apis",
-    description: "A collective list of free APIs",
-    url: "https://github.com/public-apis/public-apis",
-    avatarUrl: "https://avatars.githubusercontent.com/u/51121562?v=4",
-    totalIssueCount: 33,
-    primaryLanguage: "JavaScript",
-    popularity: "very high",
-    stage: "very early",
-    competition: "very low",
-    activity: "highest",
-  },
-];
+type ProjectsContainerProps = {
+  projects: DashboardProjectsProps[];
+};
 
 interface languageColorsTypes {
   [key: string]: string;
@@ -137,11 +128,12 @@ const getColor = (color: string): string => {
   return _color;
 };
 
-export default function ProjectsContainer() {
-
+export default function ProjectsContainer({
+  projects,
+}: ProjectsContainerProps) {
   const handleClick = (link: string) => {
-    window.open(link, "_blank")
-  }
+    window.open(link, "_blank");
+  };
   const tableColums = [
     "Project",
     "Issues",
@@ -169,7 +161,13 @@ export default function ProjectsContainer() {
           </TableHeader>
           <TableBody>
             {projects.map((project) => (
-              <TableRow key={project.id} className="border-ox-gray border-y cursor-pointer" onClick={() => {handleClick(project.url)}}>
+              <TableRow
+                key={project.id}
+                className="border-ox-gray border-y cursor-pointer"
+                onClick={() => {
+                  handleClick(project.url);
+                }}
+              >
                 <TableCell className="flex items-center gap-1">
                   <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
                     <img
