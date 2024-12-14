@@ -38,6 +38,7 @@ export type PrimaryLanguage = {
 };
 
 export type ProjectProps = {
+  id: string;
   name: string;
   description: string;
   url: string;

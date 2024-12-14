@@ -1,6 +1,11 @@
 import { graphql } from "@octokit/graphql";
 import dotenv from "dotenv";
-import { FilterProps } from "@opensox/shared/types";
+import {
+  FilterProps,
+  OptionsTypesProps,
+  RepositoryProps,
+  GraphQLResponseProps,
+} from "@opensox/shared/types";
 
 dotenv.config();
 
@@ -11,34 +16,6 @@ const graphqlWithAuth = graphql.defaults({
     authorization: `token ${GH_PAT}`,
   },
 });
-
-interface OptionsTypes {
-  sort?: "stars";
-  order?: "desc";
-  per_page?: number;
-  page?: number;
-}
-
-interface Repository {
-  name: string;
-  url: string;
-  owner: {
-    avatarUrl: string;
-  };
-  issues: {
-    totalCount: number;
-  };
-  primaryLanguage: {
-    name: string;
-  } | null;
-}
-
-interface GraphQLResponse {
-  search: {
-    nodes: Repository[];
-    repositoryCount: number;
-  };
-}
 
 // export const authenticateMe = async (): Promise<void> => {
 //     const { viewer } = await graphqlWithAuth(`
@@ -53,8 +30,8 @@ interface GraphQLResponse {
 
 export const fetchRepositories = async (
   filters: FilterProps = {},
-  options: OptionsTypes = {}
-): Promise<Repository[]> => {
+  options: OptionsTypesProps = {}
+): Promise<RepositoryProps[]> => {
   const queryParts: string[] = [];
 
   if (filters.language) {
@@ -85,7 +62,7 @@ export const fetchRepositories = async (
 
   const searchQueryString = queryParts.join(" ");
 
-  const response: GraphQLResponse = await graphqlWithAuth(
+  const response: GraphQLResponseProps = await graphqlWithAuth(
     `
         query($searchQuery: String!, $first: Int!) {
             search(
@@ -95,6 +72,7 @@ export const fetchRepositories = async (
             ) {
                 nodes {
                     ... on Repository {
+                        id
                         name
                         description
                         url
