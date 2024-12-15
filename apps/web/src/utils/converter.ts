@@ -149,10 +149,10 @@ export const convertApiOutputToUserOutput = (
     avatarUrl: item.owner.avatarUrl,
     totalIssueCount: item.issues.totalCount,
     primaryLanguage: item.primaryLanguage.name,
-    popularity: filters.Popularity || "",
-    stage: filters.Stage || "",
-    competition: filters.Competition || "",
-    activity: filters.Activity || "",
+    popularity: filters.Popularity ? filters.Popularity : "-",
+    stage: filters.Stage ? filters.Stage : "-",
+    competition: filters.Competition ? filters.Competition : "-",
+    activity: filters.Activity ? filters.Activity : "-",
   }));
   return data;
 };
