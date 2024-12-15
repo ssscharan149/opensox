@@ -36,8 +36,8 @@ export default function FiltersContainer() {
       const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
       console.log("projects", modifiedProjects);
       console.log("filters", filters);
-      // router.push("/projects");
       setData(modifiedProjects);
+      router.push("dashboard/projects");
       setRenderProjects(true);
     } catch (error) {
       console.error(error);
