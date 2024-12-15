@@ -24,22 +24,26 @@ export default function FiltersContainer() {
 
   const { toggleShowFilters } = useFilterStore();
   const { setRenderProjects } = useRenderProjects();
-  const { filters } = useFilterInputStore();
-  const { setData } = useProjectsData();
+  const { filters, resetFilters } = useFilterInputStore();
+  const { setData, eraseData } = useProjectsData();
   const getProjects = useGetProjects();
   const { setLoading } = useLoading();
   const router = useRouter();
 
   const handleSearchProjects = async () => {
     try {
-      router.push("dashboard/projects");
+      toggleShowFilters();
+      setRenderProjects(false);
+      eraseData();
       setLoading(true);
+      router.push("/dashboard/projects");
       const modifiedFilters = convertUserInputToApiInput(filters);
       const response = await getProjects(modifiedFilters);
       const projects = response;
       const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
       setData(modifiedProjects);
       setRenderProjects(true);
+      resetFilters();
       setLoading(false);
     } catch (error) {
       console.error(error);
