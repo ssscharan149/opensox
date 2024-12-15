@@ -15,10 +15,11 @@ import {
 import { useRouter } from "next/navigation";
 import { useRenderProjects } from "@/store/useRenderProjectsStore";
 import { useProjectsData } from "@/store/useProjectsDataStore";
+import { useLoading } from "@/store/useLoadingStore";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
-    window.alert("Coming very soon! :)");
+    window.alert("🏗️ Coming very soon! :)");
   };
 
   const { toggleShowFilters } = useFilterStore();
@@ -26,19 +27,20 @@ export default function FiltersContainer() {
   const { filters } = useFilterInputStore();
   const { setData } = useProjectsData();
   const getProjects = useGetProjects();
+  const { setLoading } = useLoading();
   const router = useRouter();
 
   const handleSearchProjects = async () => {
     try {
+      router.push("dashboard/projects");
+      setLoading(true);
       const modifiedFilters = convertUserInputToApiInput(filters);
       const response = await getProjects(modifiedFilters);
       const projects = response;
       const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
-      console.log("projects", modifiedProjects);
-      console.log("filters", filters);
       setData(modifiedProjects);
-      router.push("dashboard/projects");
       setRenderProjects(true);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
