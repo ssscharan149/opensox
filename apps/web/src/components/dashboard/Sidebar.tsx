@@ -22,6 +22,13 @@ const getSidebarLinkClassName = (currentPath: string, routePath: string) => {
 export default function Sidebar() {
   const pathname = usePathname();
 
+  const reqFeatureHandler = () => {
+    window.open("https://discord.gg/37ke8rYnRM", "_blank");
+  }
+
+  const supportClickHandler = () => {
+    window.open("https://buy.polar.sh/polar_cl_GYjSitlWxG4SViQOp19DyjNPfjv0DIXjwNj7ZY_8h8E", "_blank")
+  }
   const aboutAjClickHandler = () => {};
 
   return (
@@ -51,15 +58,15 @@ export default function Sidebar() {
         })}
         <SidebarItem
           itemName="Request a feature"
-          onclick={aboutAjClickHandler}
+          onclick={reqFeatureHandler}
         ></SidebarItem>
         <SidebarItem
-          itemName="Support the project"
-          onclick={aboutAjClickHandler}
+          itemName="Premium guidance"
+          onclick={supportClickHandler}
         ></SidebarItem>
         <SidebarItem
-          itemName="About Ajeet"
-          onclick={aboutAjClickHandler}
+          itemName="twitter @ajeetunc"
+          onclick={() => {window.open("https://x.com/ajeetunc", "_blank");}}
         ></SidebarItem>
       </div>
     </div>
