@@ -3,8 +3,8 @@
 import Image from "next/image";
 import imgSrc from "../../../assets/images/demoss.png";
 import { GlowingBtn } from "@/components/ui/GlowingBtn";
-import NumberTicker from "@/components/ui/number-ticker";
 import { useRouter } from "next/navigation";
+import { QueryCount } from "@/components/landing-page/QueryCount";
 
 export default function Home() {
   const router = useRouter();
@@ -53,24 +53,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="h-screen flex flex-col justify-center items-center text-center px-4 gap-28">
-        <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
-          Queries fetched so far
-        </h1>
-        <p className="whitespace-pre-wrap text-9xl font-semibold font-sans tracking-tighter text-black dark:text-white bg-gradient-to-r from-[#9455f4] to-[#9455f4]/50 bg-clip-text">
-          <NumberTicker value={1000} />
-        </p>
-      </section>
-      {/* <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-50">
-        <div className="max-w-2xl space-y-6">
-          <h2 className="text-4xl font-bold">What is Opensox?</h2>
-          <p className="text-lg text-gray-700">
-            Opensox is your gateway to the open-source world. We help developers
-            find meaningful projects, contribute to impactful code, and grow
-            their skills through collaborative coding.
-          </p>
-        </div>
-      </section> */}
+      <QueryCount></QueryCount>
       <footer className="h-[20%] flex items-center justify-center">
         <div id="landing-footer" className="flex z-10">
           <h1 className="text-sm">
