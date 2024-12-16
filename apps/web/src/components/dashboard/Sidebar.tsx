@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import SidebarItem from "../sidebar/SidebarItem";
 import { usePathname } from "next/navigation";
@@ -24,11 +25,14 @@ export default function Sidebar() {
 
   const reqFeatureHandler = () => {
     window.open("https://discord.gg/37ke8rYnRM", "_blank");
-  }
+  };
 
   const supportClickHandler = () => {
-    window.open("https://buy.polar.sh/polar_cl_GYjSitlWxG4SViQOp19DyjNPfjv0DIXjwNj7ZY_8h8E", "_blank")
-  }
+    window.open(
+      "https://buy.polar.sh/polar_cl_GYjSitlWxG4SViQOp19DyjNPfjv0DIXjwNj7ZY_8h8E",
+      "_blank"
+    );
+  };
   const aboutAjClickHandler = () => {};
 
   return (
@@ -66,7 +70,9 @@ export default function Sidebar() {
         ></SidebarItem>
         <SidebarItem
           itemName="twitter @ajeetunc"
-          onclick={() => {window.open("https://x.com/ajeetunc", "_blank");}}
+          onclick={() => {
+            window.open("https://x.com/ajeetunc", "_blank");
+          }}
         ></SidebarItem>
       </div>
     </div>
