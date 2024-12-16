@@ -1,0 +1,24 @@
+import Express, { Request, Response } from "express";
+import prisma from "src/prisma.ts";
+
+const queryRouter = Express.Router();
+
+queryRouter.get("/total_queries", async (req: Request, res: Response) => {
+  try {
+    const queryCount = await prisma.queryCount.findUnique({
+      where: { id: 1 },
+    });
+    if (queryCount) {
+      if (queryCount) {
+        console.log("Total Queries:", queryCount.total_queries);
+        res.status(200).json({ totalQueries: queryCount.total_queries });
+      } else {
+        console.log("Record not found");
+      }
+    }
+  } catch (error) {
+    console.log("Error fetching total queries:", error);
+  }
+});
+
+export default queryRouter;

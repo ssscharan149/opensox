@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "src/prisma.ts";
 
 export const increaseQueriesCount = async (): Promise<void> => {
   try {
