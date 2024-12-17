@@ -16,7 +16,7 @@ export default function DashboardContainer() {
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
-          <ProjectsContainer projects={data}></ProjectsContainer>
+          <ProjectsContainer projects={data} title={"Projects for you"}></ProjectsContainer>
         )}
         {loading && (
           <Spinner text={"loading cool projects for you..."}></Spinner>

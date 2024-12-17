@@ -13,6 +13,7 @@ import { DashboardProjectsProps } from "@/types";
 
 type ProjectsContainerProps = {
   projects: DashboardProjectsProps[];
+  title: string
 };
 
 interface languageColorsTypes {
@@ -62,6 +63,7 @@ const getColor = (color: string): string => {
 
 export default function ProjectsContainer({
   projects,
+  title,
 }: ProjectsContainerProps) {
   const handleClick = (link: string) => {
     window.open(link, "_blank");
@@ -78,7 +80,7 @@ export default function ProjectsContainer({
   return (
     <div className="w-full rounded-lg p-4">
       <div className="flex items-center justify-between pb-1">
-        <h2 className="text-md font-medium text-white">Projects for you</h2>
+        <h2 className="text-md font-medium text-white">{title}</h2>
       </div>
       <div className="rounded-lg border bg-ox-black-2 border-ox-gray border w-full">
         <Table className="w-full">
