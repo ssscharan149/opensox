@@ -5,7 +5,7 @@ import ProjectsContainer from "./ProjectsContainer";
 import { useRenderProjects } from "@/store/useRenderProjectsStore";
 import { useLoading } from "@/store/useLoadingStore";
 import Spinner from "../ui/spinner";
-import { useProjectsFoundStore } from "@/store/useProjectsFoundStore";
+import { useProjectsNotFoundStore } from "@/store/useProjectsFoundStore";
 import { ErrMsg } from "../ui/ErrMsg";
 
 export default function DashboardContainer({
@@ -16,10 +16,10 @@ export default function DashboardContainer({
   const { renderProjects } = useRenderProjects();
   const { data } = useProjectsData();
   const { loading } = useLoading();
-  const { projectsFound } = useProjectsFoundStore();
+  const { projectsNotFound } = useProjectsNotFoundStore();
   return (
     <div
-      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${loading || !projectsFound ? "flex items-center justify-center" : ""}`}
+      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${loading ? "flex items-center justify-center" : ""}`}
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
@@ -31,7 +31,7 @@ export default function DashboardContainer({
         {loading && (
           <Spinner text={"loading cool projects for you..."}></Spinner>
         )}
-        {!projectsFound && (
+        {projectsNotFound && (
           <ErrMsg
             text={
               "No projects were found matching the selected filters. Please adjust the filters and try again."
