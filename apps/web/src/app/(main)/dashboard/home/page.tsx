@@ -14,7 +14,7 @@ const Home = () => {
     setData(projectsOfTheWeek);
     setRenderProjects(true);
   }, [setData, setRenderProjects]);
-  return <Dashboard></Dashboard>;
+  return <Dashboard text={"Projects of the week"}></Dashboard>;
 };
 
 export default Home;

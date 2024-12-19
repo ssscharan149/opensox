@@ -3,7 +3,7 @@
 import Dashboard from "../page";
 
 const Projects = () => {
-  return <Dashboard></Dashboard>;
+  return <Dashboard text={"Projects for you"}></Dashboard>;
 };
 
 export default Projects;

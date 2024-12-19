@@ -8,7 +8,11 @@ import Spinner from "../ui/spinner";
 import { useProjectsFoundStore } from "@/store/useProjectsFoundStore";
 import { ErrMsg } from "../ui/ErrMsg";
 
-export default function DashboardContainer() {
+export default function DashboardContainer({
+  projectsTitle,
+}: {
+  projectsTitle: string;
+}) {
   const { renderProjects } = useRenderProjects();
   const { data } = useProjectsData();
   const { loading } = useLoading();
@@ -21,7 +25,7 @@ export default function DashboardContainer() {
         {renderProjects && (
           <ProjectsContainer
             projects={data}
-            title={"Projects for you"}
+            title={projectsTitle}
           ></ProjectsContainer>
         )}
         {loading && (
