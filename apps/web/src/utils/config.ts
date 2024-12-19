@@ -7,3 +7,19 @@ let defaults = {
 export const CONFIG = {
   ...defaults,
 };
+
+export const projectsOfTheWeek = [
+  {
+    id: "",
+    name: "",
+    description: "",
+    url: "",
+    avatarUrl: "",
+    totalIssueCount: 10,
+    primaryLanguage: "",
+    popularity: "",
+    stage: "",
+    competition: "",
+    activity: "",
+  },
+];

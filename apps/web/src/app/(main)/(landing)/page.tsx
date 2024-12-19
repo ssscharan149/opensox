@@ -14,7 +14,7 @@ export default function Home() {
   };
 
   const getStartedHandler = (): void => {
-    router.push("/dashboard");
+    router.push("/dashboard/home");
   };
 
   return (
