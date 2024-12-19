@@ -33,6 +33,13 @@ export default function Sidebar() {
       "_blank"
     );
   };
+  const shareProjectHandler = () => {
+    const msg: string =
+      "Check opensox.in\n\nIt helps you find the perfect open-source project to contribute.\n\ncreated by @ajeetunc";
+    const xUrl = `https://x.com/intent/post?text=${encodeURIComponent(msg)}`;
+    window.open(xUrl, "_blank");
+  };
+
   const aboutAjClickHandler = () => {};
 
   return (
@@ -67,6 +74,10 @@ export default function Sidebar() {
         <SidebarItem
           itemName="Premium guidance"
           onclick={supportClickHandler}
+        ></SidebarItem>
+        <SidebarItem
+          itemName="Share the love"
+          onclick={shareProjectHandler}
         ></SidebarItem>
         <SidebarItem
           itemName="twitter @ajeetunc"
