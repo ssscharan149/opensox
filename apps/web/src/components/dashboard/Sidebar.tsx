@@ -80,7 +80,7 @@ export default function Sidebar() {
           onclick={shareProjectHandler}
         ></SidebarItem>
         <SidebarItem
-          itemName="twitter @ajeetunc"
+          itemName="Twitter @ajeetunc"
           onclick={() => {
             window.open("https://x.com/ajeetunc", "_blank");
           }}

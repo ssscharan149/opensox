@@ -15,7 +15,7 @@ export default function DashboardContainer() {
   const { projectsFound } = useProjectsFoundStore();
   return (
     <div
-      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${loading || projectsFound ? "flex items-center justify-center" : ""}`}
+      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${loading || !projectsFound ? "flex items-center justify-center" : ""}`}
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
