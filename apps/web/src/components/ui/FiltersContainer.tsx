@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { useRenderProjects } from "@/store/useRenderProjectsStore";
 import { useProjectsData } from "@/store/useProjectsDataStore";
 import { useLoading } from "@/store/useLoadingStore";
+import { useProjectsFoundStore } from "@/store/useProjectsFoundStore";
 
 export default function FiltersContainer() {
   const handleClickWipFilters = () => {
@@ -26,6 +27,7 @@ export default function FiltersContainer() {
   const { setRenderProjects } = useRenderProjects();
   const { filters, resetFilters } = useFilterInputStore();
   const { setData, eraseData } = useProjectsData();
+  const { setProjectsFound } = useProjectsFoundStore();
   const getProjects = useGetProjects();
   const { setLoading } = useLoading();
   const router = useRouter();
@@ -40,6 +42,11 @@ export default function FiltersContainer() {
       const modifiedFilters = convertUserInputToApiInput(filters);
       const response = await getProjects(modifiedFilters);
       const projects = response;
+      if (!projects) {
+        setProjectsFound(false);
+        return;
+      }
+      setProjectsFound(true);
       const modifiedProjects = convertApiOutputToUserOutput(projects, filters);
       setData(modifiedProjects);
       setRenderProjects(true);
