@@ -8,11 +8,7 @@ import Spinner from "../ui/spinner";
 import { useProjectsNotFoundStore } from "@/store/useProjectsFoundStore";
 import { ErrMsg } from "../ui/ErrMsg";
 
-export default function DashboardContainer({
-  projectsTitle,
-}: {
-  projectsTitle: string;
-}) {
+export default function DashboardContainer() {
   const { renderProjects } = useRenderProjects();
   const { data } = useProjectsData();
   const { loading } = useLoading();
@@ -23,10 +19,7 @@ export default function DashboardContainer({
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
-          <ProjectsContainer
-            projects={data}
-            title={projectsTitle}
-          ></ProjectsContainer>
+          <ProjectsContainer projects={data}></ProjectsContainer>
         )}
         {loading && (
           <Spinner text={"loading cool projects for you..."}></Spinner>

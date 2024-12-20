@@ -5,7 +5,7 @@ import { ProfilePic } from "./ProfilePic";
 import { useFilterStore } from "@/store/useFilterStore";
 
 export const DashboardHeader = () => {
-  const { showFilters, setShowFilters, toggleShowFilters } = useFilterStore();
+  const { setShowFilters } = useFilterStore();
   const startHandler = () => {
     setShowFilters(true);
   };
@@ -31,7 +31,7 @@ export const DashboardHeader = () => {
         >
           Start
         </Button>
-        <ProfilePic imageUrl="https://www.madlads.com/_next/image?url=https%3A%2F%2Fmadlads.s3.us-west-2.amazonaws.com%2Fimages%2F1.png&w=1200&q=75"></ProfilePic>
+        <ProfilePic></ProfilePic>
       </div>
     </div>
   );

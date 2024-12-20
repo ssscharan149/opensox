@@ -40,8 +40,6 @@ export default function Sidebar() {
     window.open(xUrl, "_blank");
   };
 
-  const aboutAjClickHandler = () => {};
-
   return (
     <div className="h-full z-50 flex flex-col rounded-r-lg bg-ox-black-1">
       {/* <div className="sidebar-header flex justify-between px-2 py-3 border-b border-ox-gray">

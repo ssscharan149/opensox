@@ -9,11 +9,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useProjectTitleStore } from "@/store/useProjectTitleStore";
 import { DashboardProjectsProps } from "@/types";
+import Image from "next/image";
 
 type ProjectsContainerProps = {
   projects: DashboardProjectsProps[];
-  title: string
 };
 
 interface languageColorsTypes {
@@ -63,11 +64,11 @@ const getColor = (color: string): string => {
 
 export default function ProjectsContainer({
   projects,
-  title,
 }: ProjectsContainerProps) {
   const handleClick = (link: string) => {
     window.open(link, "_blank");
   };
+  const { projectTitle } = useProjectTitleStore();
   const tableColums = [
     "Project",
     "Issues",
@@ -80,14 +81,17 @@ export default function ProjectsContainer({
   return (
     <div className="w-full rounded-lg p-4">
       <div className="flex items-center justify-between pb-1">
-        <h2 className="text-md font-medium text-white">{title}</h2>
+        <h2 className="text-md font-medium text-white">{projectTitle}</h2>
       </div>
       <div className="rounded-lg border bg-ox-black-2 border-ox-gray border w-full">
         <Table className="w-full">
           <TableHeader className="w-full border">
             <TableRow className="w-full border-ox-gray border-b">
-              {tableColums.map((name) => (
-                <TableHead className="flex-1 text-center text-zinc-400 font-semibold text-ox-purple">
+              {tableColums.map((name, index) => (
+                <TableHead
+                  key={index}
+                  className="flex-1 text-center text-zinc-400 font-semibold text-ox-purple"
+                >
                   {name}
                 </TableHead>
               ))}
@@ -104,11 +108,13 @@ export default function ProjectsContainer({
               >
                 <TableCell className="flex items-center gap-1">
                   <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
-                    <img
+                    <Image
                       src={project.avatarUrl}
                       className="w-full h-full object-cover"
                       alt={project.name}
-                    ></img>
+                      width={10}
+                      height={10}
+                    ></Image>
                   </div>
                   <TableCell className="text-white text-xs text-ox-white font-semibold">
                     {project.name}

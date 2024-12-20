@@ -2,10 +2,10 @@
 
 import DashboardContainer from "@/components/dashboard/DashboardContainer";
 
-export default function Dashboard({ text }: { text: string }) {
+export default function Dashboard() {
   return (
     <div>
-      <DashboardContainer projectsTitle={text}></DashboardContainer>
+      <DashboardContainer></DashboardContainer>
     </div>
   );
 }
