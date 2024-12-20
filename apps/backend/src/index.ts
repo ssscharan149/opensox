@@ -4,9 +4,11 @@ import cors from "cors";
 import prisma from "./prisma.ts";
 
 const App: Express = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+const CORS_ORIGIN =
+  process.env.CORS_ORIGIN?.split(",") || "http://localhost:3000";
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: CORS_ORIGIN,
 };
 
 App.use(cors(corsOptions));
