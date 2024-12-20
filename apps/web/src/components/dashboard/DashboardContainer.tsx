@@ -4,9 +4,9 @@ import { useProjectsData } from "@/store/useProjectsDataStore";
 import ProjectsContainer from "./ProjectsContainer";
 import { useRenderProjects } from "@/store/useRenderProjectsStore";
 import { useLoading } from "@/store/useLoadingStore";
-import Spinner from "../ui/spinner";
 import { useProjectsNotFoundStore } from "@/store/useProjectsFoundStore";
 import { ErrMsg } from "../ui/ErrMsg";
+import SpinnerElm from "../ui/SpinnerElm";
 
 export default function DashboardContainer() {
   const { renderProjects } = useRenderProjects();
@@ -22,7 +22,7 @@ export default function DashboardContainer() {
           <ProjectsContainer projects={data}></ProjectsContainer>
         )}
         {loading && (
-          <Spinner text={"loading cool projects for you..."}></Spinner>
+          <SpinnerElm text={"loading cool projects for you..."}></SpinnerElm>
         )}
         {projectsNotFound && (
           <ErrMsg

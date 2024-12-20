@@ -2,7 +2,7 @@ interface SpinnerProps {
   text: string;
 }
 
-export default function Spinner({ text }: SpinnerProps) {
+export default function SpinnerElm({ text }: SpinnerProps) {
   return (
     <div className="flex flex-col space-y-4 items-center justify-center h-full w-full">
       <div
