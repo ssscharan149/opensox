@@ -19,7 +19,7 @@ export default function DashboardContainer({
   const { projectsNotFound } = useProjectsNotFoundStore();
   return (
     <div
-      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${loading ? "flex items-center justify-center" : ""}`}
+      className={`h-[90vh] rounded-lg mx-4 bg-ox-black-1 ${!renderProjects ? "flex items-center justify-center" : ""}`}
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
@@ -36,6 +36,11 @@ export default function DashboardContainer({
             text={
               "No projects were found matching the selected filters. Please adjust the filters and try again."
             }
+          ></ErrMsg>
+        )}
+        {!renderProjects && !loading && (
+          <ErrMsg
+            text={"Click on 'Start' to search for the projects."}
           ></ErrMsg>
         )}
       </div>
