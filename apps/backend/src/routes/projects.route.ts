@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import { fetchRepositories } from "../services/project.service.ts";
-import { increaseQueriesCount } from "src/utils/queryCount.ts";
+import { fetchRepositories } from "../services/project.service";
+import { increaseQueriesCount } from "src/utils/queryCount";
 
 const projectsRouter = express.Router();
 

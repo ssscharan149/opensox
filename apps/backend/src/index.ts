@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from "express";
-import apiRouter from "./api_routes.ts";
+import apiRouter from "./api_routes";
 import cors from "cors";
-import prisma from "./prisma.ts";
+import prisma from "./prisma";
 
 const App: Express = express();
 const PORT = process.env.PORT || 8080;

@@ -1,5 +1,5 @@
 import Express, { Request, Response } from "express";
-import prisma from "src/prisma.ts";
+import prisma from "src/prisma";
 
 const queryRouter = Express.Router();
 

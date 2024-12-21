@@ -1,7 +1,7 @@
 import express from "express";
-import authRouter from "./routes/auth.route.ts";
-import projectsRouter from "./routes/projects.route.ts";
-import queryRouter from "./routes/query.route.ts";
+import authRouter from "./routes/auth.route";
+import projectsRouter from "./routes/projects.route";
+import queryRouter from "./routes/query.route";
 
 const apiRouter = express.Router()
 

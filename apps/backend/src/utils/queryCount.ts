@@ -1,4 +1,4 @@
-import prisma from "src/prisma.ts";
+import prisma from "src/prisma";
 
 export const increaseQueriesCount = async (): Promise<void> => {
   try {
