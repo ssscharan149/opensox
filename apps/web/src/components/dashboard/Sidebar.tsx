@@ -35,7 +35,7 @@ export default function Sidebar() {
   };
   const shareProjectHandler = () => {
     const msg: string =
-      "Check opensox.in\n\nIt helps you find the perfect open-source project to contribute.\n\ncreated by @ajeetunc";
+      "Check opensox.in\n\nIt helps you find the perfect open-source project to contribute within 10 minutes.\n\ncreated by @ajeetunc";
     const xUrl = `https://x.com/intent/post?text=${encodeURIComponent(msg)}`;
     window.open(xUrl, "_blank");
   };
