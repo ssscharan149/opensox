@@ -5,7 +5,9 @@ import prisma from "./prisma";
 
 const App: Express = express();
 const PORT = process.env.PORT || 8080;
-const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
+const CORS_ORIGIN = (process.env.CORS_ORIGIN || "http://localhost:3000").split(
+  ","
+);
 const corsOptions = {
   origin: CORS_ORIGIN,
 };
