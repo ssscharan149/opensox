@@ -16,7 +16,21 @@ export const CONFIG = {
 export const projectsOfTheWeek = [
   {
     id: "1",
-    name: "nobodb",
+    name: "viewus",
+    description:
+      "ViewUs helps you seamlessly collect and manage customer testimonials.No Developers, No complex setup.",
+    url: "https://github.com/ankur1493/viewus-sec",
+    avatarUrl: "https://avatars.githubusercontent.com/u/97390674?s=48&v=4",
+    totalIssueCount: 1,
+    primaryLanguage: "Typescript",
+    popularity: "Lowest",
+    stage: "Very Early",
+    competition: "Very Low",
+    activity: "Highest",
+  },
+  {
+    id: "2",
+    name: "nocodb",
     description: "Open Source Airtable Alternative",
     url: "https://github.com/nocodb/nocodb",
     avatarUrl: "https://avatars.githubusercontent.com/u/50206778?s=48&v=4",
@@ -26,19 +40,6 @@ export const projectsOfTheWeek = [
     stage: "Established",
     competition: "High",
     activity: "Highest",
-  },
-  {
-    id: "2",
-    name: "whisper",
-    description: "Robust Speech Recognition via Large-Scale Weak Supervision",
-    url: "https://github.com/openai/whisper",
-    avatarUrl: "https://avatars.githubusercontent.com/u/14957082?s=48&v=4",
-    totalIssueCount: 0,
-    primaryLanguage: "Python",
-    popularity: "Highest",
-    stage: "Emerging",
-    competition: "Highest",
-    activity: "Normal",
   },
   {
     id: "3",
