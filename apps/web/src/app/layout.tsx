@@ -19,6 +19,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Opensox",
   description: "Find the perfect open source project to contribute",
+  icons: {
+    icon: "/images/os-image.ico",
+  },
 };
 
 export default function RootLayout({
