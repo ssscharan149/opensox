@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import imgSrc from "../../../assets/images/demoss.png";
 import { GlowingBtn } from "@/components/ui/GlowingBtn";
@@ -18,8 +17,8 @@ export default function Home() {
   };
 
   return (
-    <div className="h-screen w-full overflow-y-auto scroll-smooth">
-      <section className="h-screen flex flex-col justify-center items-center text-center px-4 mb-12">
+    <div className="w-full overflow-y-auto scroll-smooth">
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 mb-12">
         <div className="space-y-8 max-w-2xl">
           <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
             Opensox
@@ -33,17 +32,18 @@ export default function Home() {
           ></GlowingBtn>
         </div>
       </section>
-      <section className="h-screen flex flex-col items-center justify-center px-4 relative gap-28">
+
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 relative gap-20 py-16">
         <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
           Save your 100+ hours
         </h1>
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-              bg-[#9455f4] opacity-60 blur-[250px] 
-              w-[500px] h-[500px] 
-              md:w-[900px] md:h-[900px] 
-              lg:w-[1100px] lg:h-[1100px] 
-              rounded-full"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            bg-[#9455f4] opacity-60 blur-[250px]
+            w-[500px] h-[500px]
+            md:w-[900px] md:h-[900px]
+            lg:w-[1100px] lg:h-[1100px]
+            rounded-full"
         ></div>
         <div className="relative z-10 w-full max-w-4xl">
           <Image
@@ -53,8 +53,29 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-16 gap-20 relative">
+        <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
+          Quick guide
+        </h1>
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+      bg-[#9455f4] opacity-60 blur-[250px]
+      w-[500px] h-[500px]
+      md:w-[900px] md:h-[900px]
+      lg:w-[1100px] lg:h-[1100px]
+      rounded-full"
+        ></div>
+        <div className="w-[78%] rounded-lg overflow-hidden z-10">
+          <video controls className="w-full h-full">
+            <source src="/videos/os-demo.mp4" type="video/mp4"></source>
+          </video>
+        </div>
+      </section>
+
       <QueryCount></QueryCount>
-      <footer className="h-[20%] flex items-center justify-center">
+
+      <footer className="py-8 flex items-center justify-center">
         <div id="landing-footer" className="flex z-10">
           <h1 className="text-sm">
             Created by{" "}
