@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="w-full overflow-y-auto scroll-smooth">
-      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 mb-12">
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 md:mb-12">
         <div className="space-y-8 max-w-2xl">
           <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
             Opensox
@@ -33,8 +33,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 relative gap-20 py-16">
-        <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
+      <section className="h-[60%] md:min-h-screen flex flex-col items-center justify-center px-4 relative gap-10 md:gap-20 py-8 md:py-16">
+        <h1 className="text-2xl md:text-4xl lg:text-7xl font-extrabold font-sans">
           Save your 100+ hours
         </h1>
         <div
@@ -54,8 +54,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-16 gap-20 relative">
-        <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
+      <section className="h-[60%] md:min-h-screen flex flex-col items-center justify-center px-4 gap-10 md:gap-20 py-8 md:py-16 relative">
+        <h1 className="text-2xl md:text-4xl lg:text-7xl font-extrabold font-sans">
           Quick guide
         </h1>
         <div
@@ -66,7 +66,7 @@ export default function Home() {
       lg:w-[1100px] lg:h-[1100px]
       rounded-full"
         ></div>
-        <div className="w-[78%] rounded-lg overflow-hidden z-10">
+        <div className="w-full h-full md:w-[78%] rounded-lg overflow-hidden z-10">
           <video controls className="w-full h-full">
             <source src="/videos/os-demo.mp4" type="video/mp4"></source>
           </video>
