@@ -26,10 +26,10 @@ export const DashboardHeader = () => {
         className="flex h-full w-[40%] items-center justify-end space-x-8"
       >
         <Button
-          className="font-semibold text-[15px] h-8 w-16 hover:bg-white-500 text-white bg-ox-purple cursor-pointer"
+          className="font-semibold text-xs flex hover:bg-white-500 text-white bg-ox-purple cursor-pointer"
           onClick={startHandler}
         >
-          Start
+          Find projects
         </Button>
         <ProfilePic></ProfilePic>
       </div>
