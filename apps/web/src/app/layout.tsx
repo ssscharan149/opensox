@@ -6,15 +6,24 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "./providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const dmReg = localFont({
+  src: "./fonts/DMMono-Regular.ttf",
+  variable: "--font-dm-mono-req",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const dmMed = localFont({
+  src: "./fonts/DMMono-Medium.ttf",
+  variable: "--font-dm-mono-med",
+});
+
+const monaReg = localFont({
+  src: "./fonts/Mona-Sans-Regular.ttf",
+  variable: "--font-mona-sans-req",
+});
+
+const monaMed = localFont({
+  src: "./fonts/Mona-Sans-Medium.ttf",
+  variable: "--font-mona-sans-med",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${dmMed.variable} ${dmReg.variable} antialiased bg-background`}
       >
         <PostHogProvider>
           <ThemeProvider
