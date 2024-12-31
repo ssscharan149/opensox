@@ -15,7 +15,7 @@ export default function DashboardContainer() {
   const { projectsNotFound } = useProjectsNotFoundStore();
   return (
     <div
-      className={`h-[90vh] rounded-lg mx-1 md:mx-4 bg-ox-black-1 border border-ox-gray ${!renderProjects ? "flex items-center justify-center" : ""}`}
+      className={`h-[80vh] md:h-[88vh] rounded-lg mx-1 md:mx-4 bg-ox-black-1 border border-ox-gray ${!renderProjects ? "flex items-center justify-center" : ""}`}
     >
       <div className={`max-h-full ${!loading ? "overflow-y-scroll" : ""}`}>
         {renderProjects && (
