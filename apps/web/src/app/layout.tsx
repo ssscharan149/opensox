@@ -16,15 +16,15 @@ const dmMed = localFont({
   variable: "--font-dm-mono-med",
 });
 
-const monaReg = localFont({
-  src: "./fonts/Mona-Sans-Regular.ttf",
-  variable: "--font-mona-sans-req",
-});
+// const monaReg = localFont({
+//   src: "./fonts/Mona-Sans-Regular.ttf",
+//   variable: "--font-mona-sans-req",
+// });
 
-const monaMed = localFont({
-  src: "./fonts/Mona-Sans-Medium.ttf",
-  variable: "--font-mona-sans-med",
-});
+// const monaMed = localFont({
+//   src: "./fonts/Mona-Sans-Medium.ttf",
+//   variable: "--font-mona-sans-med",
+// });
 
 export const metadata: Metadata = {
   title: "Opensox",
