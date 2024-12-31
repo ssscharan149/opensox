@@ -79,18 +79,21 @@ export default function ProjectsContainer({
     "Activity",
   ];
   return (
-    <div className="w-full rounded-lg p-4">
+    <div className="w-full rounded-lg p-2 sm:p-4">
       <div className="flex items-center justify-between pb-1">
-        <h2 className="text-md font-medium text-white">{projectTitle}</h2>
+        <h2 className="text-xs sm:text-sm md:text-md font-semibold text-white">
+          {projectTitle}
+        </h2>
       </div>
-      <div className="rounded-lg border bg-ox-black-2 border-ox-gray border w-full">
+      <div className="rounded-lg border bg-ox-black-2 border-ox-gray border w-full overflow-x-auto">
         <Table className="w-full">
           <TableHeader className="w-full border">
             <TableRow className="w-full border-ox-gray border-b">
               {tableColums.map((name, index) => (
                 <TableHead
                   key={index}
-                  className="flex-1 text-center text-zinc-400 font-semibold text-ox-purple"
+                  className={`flex-1 text-center text-zinc-400 font-semibold text-ox-purple
+                    text-[12px] sm:text-sm`}
                 >
                   {name}
                 </TableHead>
@@ -106,41 +109,41 @@ export default function ProjectsContainer({
                   handleClick(project.url);
                 }}
               >
-                <TableCell className="flex items-center gap-1">
-                  <div className="rounded-full overflow-hidden inline-block h-6 w-6 border">
+                <TableCell className="flex items-center gap-1 p-1 sm:p-2">
+                  <div className="rounded-full overflow-hidden inline-block h-4 w-4 sm:h-6 sm:w-6 border">
                     <Image
                       src={project.avatarUrl}
                       className="w-full h-full object-cover"
                       alt={project.name}
                       width={10}
                       height={10}
-                    ></Image>
+                    />
                   </div>
-                  <TableCell className="text-white text-xs text-ox-white font-semibold">
+                  <TableCell className="text-white text-[10px] sm:text-xs text-ox-white font-semibold">
                     {project.name}
                   </TableCell>
                 </TableCell>
-                <TableCell className="text-white text-xs text-center text-ox-white">
+                <TableCell className="text-white text-[10px] sm:text-xs text-center text-ox-white p-1 sm:p-2">
                   {project.totalIssueCount}
                 </TableCell>
-                <TableCell className="text-center">
+                <TableCell className="text-center p-1 sm:p-2">
                   <Badge
                     variant="secondary"
-                    className={getColor(project.primaryLanguage)}
+                    className={`${getColor(project.primaryLanguage)} text-[10px] sm:text-xs`}
                   >
                     {project.primaryLanguage}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-white text-xs text-center text-ox-white font-semibold">
+                <TableCell className="text-white text-[10px] sm:text-xs text-center text-ox-white font-semibold p-1 sm:p-2">
                   {project.popularity}
                 </TableCell>
-                <TableCell className="text-white text-xs text-center text-ox-white font-semibold">
+                <TableCell className="text-white text-[10px] sm:text-xs text-center text-ox-white font-semibold md:table-cell p-1 sm:p-2">
                   {project.stage}
                 </TableCell>
-                <TableCell className="text-white text-xs text-center text-ox-white font-semibold">
+                <TableCell className="text-white text-[10px] sm:text-xs text-center text-ox-white font-semibold md:table-cell p-1 sm:p-2">
                   {project.competition}
                 </TableCell>
-                <TableCell className="text-white text-xs text-center text-ox-white font-semibold">
+                <TableCell className="text-white text-[10px] sm:text-xs text-center text-ox-white font-semibold md:table-cell p-1 sm:p-2">
                   {project.activity}
                 </TableCell>
               </TableRow>
