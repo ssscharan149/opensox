@@ -4,9 +4,14 @@ import imgSrc from "../../../assets/images/demoss.png";
 import { GlowingBtn } from "@/components/ui/GlowingBtn";
 import { useRouter } from "next/navigation";
 import { QueryCount } from "@/components/landing-page/QueryCount";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch("/dashboard/home");
+  }, [router]);
 
   const ajeetClickHandler = (): void => {
     window.open("https://x.com/ajeetunc", "_blank");
