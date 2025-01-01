@@ -5,6 +5,7 @@ import { GlowingBtn } from "@/components/ui/GlowingBtn";
 import { useRouter } from "next/navigation";
 import { QueryCount } from "@/components/landing-page/QueryCount";
 import { useEffect } from "react";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export default function Home() {
   const router = useRouter();
@@ -22,15 +23,26 @@ export default function Home() {
   };
 
   return (
-    <main className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
+    <main className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden scroll-">
       <section className="min-h-screen w-full flex flex-col justify-center items-center text-center px-4 md:mb-12">
         <div className="space-y-8 max-w-2xl">
           <h1 className="text-5xl lg:text-7xl font-extrabold font-sans">
             Opensox
           </h1>
-          <p className="text-xs lg:text-base lg:font-medium font-medium text-ox-purple">
-            Find the perfect open-source project to contribute.
-          </p>
+          {/* <p className="text-xs lg:text-base lg:font-medium font-medium text-ox-purple"> */}
+          <TypewriterEffect
+            words={[
+              { text: "Find" },
+              { text: "the" },
+              { text: "perfect" },
+              { text: "open" },
+              { text: "source" },
+              { text: "projects" },
+              { text: "to" },
+              { text: "contribute." },
+            ]}
+          ></TypewriterEffect>
+          {/* </p> */}
           <GlowingBtn text="Get started" handleClick={getStartedHandler} />
         </div>
       </section>
