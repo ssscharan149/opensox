@@ -10,7 +10,9 @@ export const increaseQueriesCount = async (): Promise<void> => {
         },
       },
     });
-    console.log("Updated Count:", updatedCount);
+    if (process.env.NODE_ENV === "development") {
+      console.log("Updated Count:", updatedCount);
+    }
   } catch (error) {
     console.error("Error updating query count:", error);
   } finally {
