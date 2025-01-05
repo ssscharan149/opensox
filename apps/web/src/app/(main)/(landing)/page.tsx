@@ -6,9 +6,53 @@ import { useRouter } from "next/navigation";
 import { QueryCount } from "@/components/landing-page/QueryCount";
 import { useEffect } from "react";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { TweetGrid } from "@/components/ui/tweet-grid";
 
 export default function Home() {
   const router = useRouter();
+
+  const tweetsIDs = [
+    "1871154863889092799",
+    "1871803868620951686",
+    "1871209255682154498",
+    "1871162837172895844",
+    "1872250775147274505",
+    "1871160171126304981",
+    "1871181147537064077",
+    "1871807215176474771",
+    "1871416595131633978",
+    "1871158905277227016",
+    "1871178988183556210",
+    "1871157673703727332",
+    "1871262278051668130",
+    "1871159748923699302",
+    "1871211587190534395",
+    "1871342967124021396",
+    "1871217050938679805",
+    "1871381671603540403",
+    "1871389498271293826",
+    "1871577544669233344",
+    "1871561148065325520", //double line feedbacks
+    "1871168561588121657",
+    "1871153542104248467",
+    "1871527385381978417",
+    "1871346167524769894",
+    "1871285179345772582",
+    "1871561148065325520",
+    "1871168561588121657",
+    "1871153542104248467",
+    "1871527385381978417",
+    "1871346167524769894",
+    "1871285179345772582",
+    "1871561148065325520",
+    "1871168561588121657",
+    "1871153542104248467",
+    "1871527385381978417",
+    "1871346167524769894",
+    "1871285179345772582",
+    "1871561148065325520",
+    "1871168561588121657",
+  ];
 
   useEffect(() => {
     router.prefetch("/dashboard/home");
@@ -84,6 +128,27 @@ export default function Home() {
           <video controls className="w-full h-full">
             <source src="/videos/os-demo.mp4" type="video/mp4" />
           </video>
+        </div>
+      </section>
+
+      <section className="min-h-screen w-full flex flex-col items-center justify-center px-4 gap-10 md:gap-20 py-8 lg:py-12 xl:py-16 relative">
+        <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold font-sans">
+          Loved by the community
+        </h1>
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+          bg-[#9455f4] opacity-60 blur-[250px]
+          w-[500px] h-[500px]
+          md:w-[900px] md:h-[900px]
+          lg:w-[1100px] lg:h-[1100px]
+          rounded-full"
+        />
+        <div className="flex items-center justify-center w-full">
+          <TweetGrid
+            className="w-80 md:w-full"
+            speed={"slow"}
+            tweets={tweetsIDs}
+          />
         </div>
       </section>
 

@@ -63,25 +63,28 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        scrollRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" }, // Move by half the width since we duplicate content
+        },
+        scrollLeft: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" }, // Same for left scroll
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        scrollRight: "scrollRight var(--duration) linear infinite",
+        scrollLeft: "scrollLeft var(--duration) linear infinite",
+        none: "none",
       },
       fontFamily: {
         DMfont: ["var(--font-dm-mono-med)", "var(--font-dm-mono-req)"],
@@ -91,4 +94,5 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
 export default config;
