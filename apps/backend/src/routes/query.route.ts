@@ -11,7 +11,6 @@ queryRouter.get("/total_queries", async (req: Request, res: Response) => {
     if (queryCount) {
       if (queryCount) {
         if (process.env.NODE_ENV === "development") {
-          console.log(process.env.NODE_ENV);
           console.log("Total Queries:", queryCount.total_queries);
         }
         res.status(200).json({ totalQueries: queryCount.total_queries });
