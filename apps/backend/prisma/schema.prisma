@@ -3,11 +3,57 @@ generator client {
 }
 
 datasource db {
-  provider = "cockroachdb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model QueryCount {
-  id            Int @id @default(1)
-  total_queries Int
+  id            Int    @id @default(1)
+  total_queries BigInt
+}
+
+model User {
+  id String @id @default(cuid())
+
+  email String @unique
+
+  firstName String
+
+  authMethod String
+
+  createdAt DateTime @default(now())
+
+  lastLogin DateTime @updatedAt
+
+  accounts Account[]
+}
+
+model Account {
+  id String @id @default(cuid())
+
+  userId String // Foreign key to User
+
+  type String // "oauth", "email", etc.
+
+  provider String // "google", "github", etc.
+
+  providerAccountId String // ID from the provider
+
+  refresh_token String?
+
+  access_token String?
+
+  expires_at Int?
+
+  token_type String?
+
+  scope String?
+
+  id_token String?
+
+  session_state String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
