@@ -13,7 +13,7 @@ queryRouter.get("/total_queries", async (req: Request, res: Response) => {
         if (process.env.NODE_ENV === "development") {
           console.log("Total Queries:", queryCount.total_queries);
         }
-        res.status(200).json({ totalQueries: queryCount.total_queries });
+        res.status(200).json({ totalQueries: queryCount.total_queries.toString() });
       } else {
         if (process.env.NODE_ENV === "development") {
           console.log("Record not found");
