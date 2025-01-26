@@ -1,5 +1,3 @@
-"use client";
-
 import SignInPage from "@/components/login/SignInPage";
 
 export default function Home() {

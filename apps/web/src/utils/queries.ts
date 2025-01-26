@@ -1,15 +1,26 @@
 import { CONFIG } from "./config";
 
-export const fetchTotalQueries = async (): Promise<number> => {
-  let totalCount = 0;
+export const fetchTotalQueries = async (): Promise<bigint> => {
   try {
     const response = await fetch(`${CONFIG.BASE_URL}/api/total_queries`, {
       method: "GET",
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
-    totalCount = data.totalQueries;
+
+    // Convert the string representation to BigInt
+    const totalCount =
+      typeof data.totalQueries === "string"
+        ? BigInt(data.totalQueries)
+        : BigInt(Number(data.totalQueries));
+
+    return totalCount;
   } catch (error) {
     console.error("Error fetching the API:", error);
+    return BigInt(713);
   }
-  return totalCount ? totalCount : 713;
 };
