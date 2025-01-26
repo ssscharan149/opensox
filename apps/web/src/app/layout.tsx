@@ -5,6 +5,9 @@ import { ThemeProvider } from "./theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "./providers";
+import { getServerSession } from "next-auth/next";
+import { authConfig } from "@/lib/auth/config";
+import { SessionWrapper } from "./SessionWrapper";
 
 const dmReg = localFont({
   src: "./fonts/DMMono-Regular.ttf",
@@ -16,16 +19,6 @@ const dmMed = localFont({
   variable: "--font-dm-mono-med",
 });
 
-// const monaReg = localFont({
-//   src: "./fonts/Mona-Sans-Regular.ttf",
-//   variable: "--font-mona-sans-req",
-// });
-
-// const monaMed = localFont({
-//   src: "./fonts/Mona-Sans-Medium.ttf",
-//   variable: "--font-mona-sans-med",
-// });
-
 export const metadata: Metadata = {
   title: "Opensox",
   description: "Find the perfect open source project to contribute",
@@ -34,11 +27,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authConfig);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -51,7 +46,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <SessionWrapper session={session}>{children}</SessionWrapper>
           </ThemeProvider>
         </PostHogProvider>
         <Analytics />

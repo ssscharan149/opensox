@@ -1,7 +1,9 @@
-import express from "express"
-// import { authenticateMe } from "../services/project.service.ts"
+import express from "express";
+import { googleAuthService } from "../services/auth.service";
+import { validateSession } from "../middleware/auth";
 
-const authRouter = express.Router()
-// authRouter.get("/verify", authenticateMe)
+const authRouter = express.Router();
+authRouter.post("/google", googleAuthService.handleGoogleAuth);
+authRouter.get("/session", validateSession, googleAuthService.getSession);
 
-export default authRouter
+export default authRouter;

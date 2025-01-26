@@ -5,39 +5,32 @@ import Dashboard from "../page";
 import { useProjectsData } from "@/store/useProjectsDataStore";
 import { useRenderProjects } from "@/store/useRenderProjectsStore";
 import { projectsOfTheWeek } from "@/utils/config";
-import { useEffect, useState } from "react";
-import SpinnerElm from "@/components/ui/SpinnerElm";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const { setRenderProjects } = useRenderProjects();
   const { setData } = useProjectsData();
   const { setProjectTitle } = useProjectTitleStore();
-  const [isLoading, setIsLoading] = useState(true);
+  const { status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    const initializeState = async () => {
-      try {
-        // Initialize all state concurrently
-        await Promise.all([
-          setData(projectsOfTheWeek),
-          setRenderProjects(true),
-          setProjectTitle("Projects of the week"),
-        ]);
-      } finally {
-        setIsLoading(false);
-      }
+    if (status === "unauthenticated") {
+      router.replace("/login");
+    }
+  }, [status, router]);
+
+  useEffect(() => {
+    const initializeState = () => {
+      setData(projectsOfTheWeek);
+      setRenderProjects(true);
+      setProjectTitle("Projects of the week");
     };
 
     initializeState();
   }, [setData, setRenderProjects, setProjectTitle]);
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <SpinnerElm text={"just a second..."}></SpinnerElm>
-      </div>
-    );
-  }
 
   return <Dashboard />;
 };
