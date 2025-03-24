@@ -167,6 +167,3 @@ export default function Home() {
     </main>
   );
 }
-
-// https://x.com/utkersh01/status/1871561148065325520
-// /1871153542104248467
