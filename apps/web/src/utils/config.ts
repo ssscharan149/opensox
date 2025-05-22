@@ -16,16 +16,16 @@ export const CONFIG = {
 export const projectsOfTheWeek = [
   {
     id: "1",
-    name: "viewus",
+    name: "mem0ai",
     description:
-      "ViewUs helps you seamlessly collect and manage customer testimonials.No Developers, No complex setup.",
-    url: "https://github.com/ankur1493/viewus-sec",
-    avatarUrl: "https://avatars.githubusercontent.com/u/97390674?s=48&v=4",
-    totalIssueCount: 1,
-    primaryLanguage: "Typescript",
-    popularity: "Lowest",
-    stage: "Very Early",
-    competition: "Very Low",
+      "Memory for AI Agents; SOTA in AI Agent Memory; Announcing OpenMemory MCP - local and secure memory management.",
+    url: "https://github.com/mem0ai/mem0",
+    avatarUrl: "https://avatars.githubusercontent.com/u/137054526?s=48&v=4",
+    totalIssueCount: 292,
+    primaryLanguage: "Python",
+    popularity: "Higher",
+    stage: "Early",
+    competition: "Low",
     activity: "Highest",
   },
   {
