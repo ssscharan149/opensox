@@ -2,9 +2,14 @@
 builder = "nixpacks"
 buildCommand = "cd apps/backend && pnpm install && pnpm run build"
 
-
 [deploy]
 startCommand = "cd apps/backend && pnpm run deploy && pnpm start"
+
+[build.nixpacksPlan]
+providers = ["node"]  # include python here too if needed
+
+[build.nixpacksPlan.phases.setup]
+cmds = ["npm install -g pnpm"]
 
 [build.nixpacksPlan.phases.install]
 cmds = ["pnpm i"]
