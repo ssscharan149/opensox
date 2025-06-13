@@ -13,6 +13,7 @@
   "author": "Ajeet Pratap Singh",
   "license": "ISC",
   "dependencies": {
+    "@octokit/graphql": "^9.0.1",
     "@prisma/client": "^5.10.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
