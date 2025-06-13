@@ -8,8 +8,8 @@ startCommand = "cd apps/backend && pnpm run deploy && pnpm start"
 [build.nixpacksPlan]
 providers = ["node"]
 
-[phases.setup]
+[build.nixpacksPlan.phases.setup]
 cmds = ["npm install -g pnpm"]
 
-[phases.install]
+[build.nixpacksPlan.phases.install]
 cmds = ["pnpm i"]
