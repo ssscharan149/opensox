@@ -3,6 +3,9 @@ import apiRouter from "./api_routes";
 import cors from "cors";
 import prisma from "./prisma";
 import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import { CorsOptions as CorsOptionsType } from "cors";
+import ipBlocker from "./middleware/ipBlock";
 
 const App: Express = express();
 const PORT = process.env.PORT || 8080;
@@ -10,25 +13,44 @@ const CORS_ORIGINS = process.env.CORS_ORIGINS
   ? process.env.CORS_ORIGINS.split(",")
   : ["http://localhost:3000", "http://localhost:5000"];
 
-// Rate limiting configuration
-const limiter = rateLimit({
+// Security headers
+App.use(helmet());
+App.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+    },
+  })
+);
+
+// Apply IP blocking middleware first
+App.use(ipBlocker.middleware);
+
+// Different rate limits for different endpoints
+const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // limit each IP to 100 requests per window
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  max: 5, // limit each IP to 5 requests per window for auth
+  message: "Too many login attempts, please try again later",
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
-// Apply rate limiting to all requests
-App.use(limiter);
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 30, // limit each IP to 30 requests per window for API
+  message: "Too many requests from this IP",
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
-interface CorsOptions {
-  origin: (
-    origin: string | undefined,
-    callback: (err: Error | null, origin?: string) => void
-  ) => void;
-}
+// Request size limits
+App.use(express.json({ limit: "10kb" }));
+App.use(express.urlencoded({ limit: "10kb", extended: true }));
 
-const corsOptions: CorsOptions = {
+const corsOptions: CorsOptionsType = {
   origin: (origin, callback) => {
     if (!origin || CORS_ORIGINS.includes(origin)) {
       callback(null, origin);
@@ -36,16 +58,44 @@ const corsOptions: CorsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  maxAge: 86400, // 24 hours
 };
 
 App.use(cors(corsOptions));
-App.use(express.json());
 
-App.get("/test", (req: Request, res: Response) => {
-  res.status(200).json({ status: "ok" });
+// Blocked IPs endpoint (now public) - Moved before /api route
+App.get("/admin/blocked-ips", (req: Request, res: Response) => {
+  const blockedIPs = ipBlocker.getBlockedIPs();
+  res.json({
+    blockedIPs: blockedIPs.map(ip => ({
+      ...ip,
+      blockedUntil: new Date(ip.blockedUntil).toISOString()
+    }))
+  });
 });
 
+// Test endpoint
+App.get("/test", (req: Request, res: Response) => {
+  res.status(200).json({ status: "ok", message: "Test endpoint is working" });
+}, apiLimiter);
+
+// Apply rate limiting to specific routes
+App.use("/api/auth", authLimiter);
+App.use("/api", apiLimiter);
+
 App.use("/api", apiRouter);
+
+// Global error handling
+App.use((err: Error, req: Request, res: Response, next: Function) => {
+  console.error(err.stack);
+  res.status(500).json({
+    error: "Internal Server Error",
+    message: process.env.NODE_ENV === "development" ? err.message : undefined,
+  });
+});
 
 App.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

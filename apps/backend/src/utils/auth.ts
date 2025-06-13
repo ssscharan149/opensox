@@ -7,6 +7,10 @@ if (!process.env.JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined in the environment variables");
 }
 
+export const generateToken = (email: string): string => {
+  return jwt.sign({ email }, JWT_SECRET, { expiresIn: '48h' });
+};
+
 export const verifyToken = async (token: string) => {
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
