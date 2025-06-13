@@ -1,19 +1,6 @@
 [build]
 builder = "nixpacks"
-
-[build.nixpacksPlan]
-providers = ["node"]
-
-[build.nixpacksPlan.phases.setup]
-cmds = ["npm install -g pnpm"]
-
-[build.nixpacksPlan.phases.install]
-cmds = ["cd apps/backend && pnpm install"]
-
-[build.nixpacksPlan.phases.build]
-buildCommand = ["npm install -g pnpm && cd apps/backend && pnpm install && pnpm run build"]
+buildCommand = "cd apps/backend && npm install && npm run build"
 
 [deploy]
-startCommand = "cd apps/backend && pnpm run deploy && pnpm start"
-
-
+startCommand = "cd apps/backend && npm run deploy && npm start"
