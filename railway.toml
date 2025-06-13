@@ -7,4 +7,4 @@ buildCommand = "cd apps/backend && pnpm install && pnpm run build"
 startCommand = "cd apps/backend && pnpm run deploy && pnpm start"
 
 [build.nixpacksPlan.phases.install]
-cmds = ["pnpm ci"]
+cmds = ["pnpm i"]
