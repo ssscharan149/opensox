@@ -1,5 +1,6 @@
 import { Response, Request } from "express";
 import prisma from "../prisma";
+import { generateToken } from "../utils/auth";
 
 export const googleAuthService = {
   async handleGoogleAuth(req: Request, res: Response): Promise<void> {
@@ -23,7 +24,9 @@ export const googleAuthService = {
           lastLogin: new Date(),
         },
       });
-      res.status(200).json({ user });
+
+      const token = generateToken(email);
+      res.status(200).json({ user, token });
       return;
     } catch (error) {
       if (process.env.NODE_ENV) {

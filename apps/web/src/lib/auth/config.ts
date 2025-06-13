@@ -23,6 +23,7 @@ export const authConfig: NextAuthOptions = {
             }),
           }
         );
+
         if (!response.ok) throw new Error("Failed to save user");
         return true;
       } catch (error) {
@@ -34,14 +35,29 @@ export const authConfig: NextAuthOptions = {
     async session({ session, token }) {
       return {
         ...session,
-        accessToken: token.accessToken,
+        accessToken: token.jwtToken,
         expires: session.expires,
       };
     },
 
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token;
+    async jwt({ token, account, user }) {
+      if (account && user) {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: user.email,
+              firstName: user.name,
+              authMethod: "google",
+            }),
+          }
+        );
+        if (response.ok) {
+          const data = await response.json();
+          token.jwtToken = data.token;
+        }
       }
       return token;
     },
