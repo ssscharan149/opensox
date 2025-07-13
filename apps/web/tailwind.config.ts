@@ -79,6 +79,14 @@ const config: Config = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" }, // Same for left scroll
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -86,6 +94,11 @@ const config: Config = {
         scrollRight: "scrollRight var(--duration) linear infinite",
         scrollLeft: "scrollLeft var(--duration) linear infinite",
         none: "none",
+        customspin: "spin 30s linear infinite",
+        "spin-slow": "spin 20s linear infinite",
+        "spin-slow-reverse": "spin 20s linear infinite reverse",
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       fontFamily: {
         DMfont: ["var(--font-dm-mono-med)", "var(--font-dm-mono-req)"],
