@@ -15,7 +15,7 @@ const Hero = () => {
             />
             <div className="w-full lg:max-w-3xl space-y-3 text-center">
                 <h1 className='text-5xl text-[2.8rem] lg:text-7xl lg:text-[6rem] font-medium tracking-tighter'>Find your perfect Open-Source Repo</h1>
-                <p className="w-full text-sm lg:text-2xl tracking-tight font-light lg:max-w-4xl lg:text-balance text-[#e1e1e1]">Find top open-source repos in seconds.
+                <p className="w-full lg:text-2xl tracking-tight font-light sm:max-w-lg mx-auto lg:max-w-4xl lg:text-balance text-[#e1e1e1]">Find top open-source repos in seconds.
                     Filter by your language, framework, or niche.
                     Start contributing in minutes, not hours.</p>
             </div>

@@ -67,7 +67,7 @@ const Bento = () => {
                             <h5 className='text-2xl lg:text-3xl tracking-tighter text-left'>Personalized Recommendations</h5>
                             <p className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Get personalized repos you can contribute to.</p>
                         </div>
-                        <div className="h-full w-full flex items-start lg:pt-10 lg:pb-4  relative overflow-hidden z-20">
+                        <div className="h-[400px] overflow-hidden w-full flex items-start lg:pt-10 lg:pb-4  relative z-10">
                             <AnimatedList className='w-full'>
                                 {notifications.map((item, idx) => (
                                     <Notification {...item} key={idx} />
@@ -86,7 +86,7 @@ const Bento = () => {
 
                         <div className="absolute h-full w-full bg-gradient-to-t from-[#101010]/75 via-transparent to-[#101010]/75 top-0 left-1/2 -translate-x-1/2"></div>
                         <div className="absolute h-full w-full bg-gradient-to-r from-[#101010]/75 via-transparent to-[#101010]/75 top-0 left-1/2 -translate-x-1/2"></div>
-                        <div className="h-[90px] absolute -bottom-7 w-full bg-[#101010] blur-[15px] z-20"></div>
+                        <div className="h-[90px] absolute left-1/2 -translate-x-1/2 -bottom-7 w-full bg-[#101010] blur-[15px] z-20"></div>
                     </div>
                 </div>
                 <div className="border-b lg:border-b-0 lg:border-r border-[#202020] lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
