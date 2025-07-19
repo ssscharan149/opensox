@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { FlickeringGrid } from '../ui/flickering-grid'
 import OrbitComponent from '../ui/orbit'
@@ -6,6 +7,7 @@ import Image from 'next/image'
 import { AnimatedList } from '../ui/animated-list'
 import { cn } from '@/lib/utils'
 import { Cap, Lucid, Mail0, SupMemory } from '../icons/icons'
+import { motion } from 'framer-motion'
 
 
 let notifications = [
@@ -41,12 +43,17 @@ const Bento = () => {
     return (
         <div id='features' className="flex flex-col w-full">
             <div className="px-[30px] py-10 h-[160px] relative overflow-hidden border-b border-[#202020] ">
-                <h4 className='font-medium w-full text-3xl lg:text-5xl tracking-tight absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 text-center text-balance'>Supercharge Your Open Source Journey</h4>
+                <motion.h4
+                    initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.3 }}
+                    className='font-medium inset-0 flex items-center justify-center text-3xl lg:text-5xl tracking-tight absolute  z-30 text-center text-balance'>Supercharge Your Open Source Journey</motion.h4>
                 <div
                     style={{
                         background: 'radial-gradient(circle at center, #101010 30%, transparent 100%)',
                     }}
                     className=" h-full w-[100%] right-0 top-0 z-20 absolute"></div>
+                {/* <div className="absolute h-[30%] w-full bg-gradient-to-b from-[#101010] via-transparent to-transparent top-0 left-1/2 -translate-x-1/2 z-20"></div> */}
                 <div className="absolute right-0 w-[100%] h-full top-0 z-10 opacity-50">
                     <FlickeringGrid
                         className="absolute -z-0  top-0 right-0"
@@ -64,8 +71,16 @@ const Bento = () => {
                 <div className="lg:w-1/3 border-b lg:border-b-0 lg:border-r border-[#202020] lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full ">
                     <div className="border border-dashed border-[#202020] w-full h-full  relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
                         <div className="space-y-1 flex-shrink-0 z-10">
-                            <h5 className='text-2xl lg:text-3xl tracking-tighter text-left'>Personalized Recommendations</h5>
-                            <p className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Get personalized repos you can contribute to.</p>
+                            <motion.h5
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='text-2xl lg:text-3xl tracking-tighter text-left'>Personalized Recommendations</motion.h5>
+                            <motion.p
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Get personalized repos you can contribute to.</motion.p>
                         </div>
                         <div className="h-[400px] overflow-hidden w-full flex items-start lg:pt-10 lg:pb-4  relative z-10">
                             <AnimatedList className='w-full'>
@@ -92,8 +107,16 @@ const Bento = () => {
                 <div className="border-b lg:border-b-0 lg:border-r border-[#202020] lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
                     <div className="border border-dashed border-[#202020] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 space-y-1 flex flex-col items-center justify-start gap-4 z-10">
                         <div className="w-full z-10">
-                            <h5 className='text-2xl lg:text-3xl tracking-tighter text-left'>Seamless Search </h5>
-                            <p className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Search thousands of open-source repos instantly.</p>
+                            <motion.h5
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='text-2xl lg:text-3xl tracking-tighter text-left'>Seamless Search </motion.h5>
+                            <motion.p
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Search thousands of open-source repos instantly.</motion.p>
                         </div>
                         <div className="absolute w-full h-full top-0 left-0">
                             <div className="absolute h-full w-full z-10"></div>
@@ -116,8 +139,16 @@ const Bento = () => {
                 <div className="lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
                     <div className="border border-dashed border-[#202020] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
                         <div className="space-y-1 flex-shrink-0 z-10">
-                            <h5 className='text-2xl lg:text-3xl tracking-tighter text-left'>Precision Filters </h5>
-                            <p className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Zero in on projects by language, stack and activity level.</p>
+                            <motion.h5
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='text-2xl lg:text-3xl tracking-tighter text-left'>Precision Filters </motion.h5>
+                            <motion.p
+                                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
+                                className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Zero in on projects by language, stack and activity level.</motion.p>
                         </div>
                         <div className="h-full w-full flex items-center lg:pt-10 lg:pb-4  relative overflow-hidden z-20">
                             <CardStack />
