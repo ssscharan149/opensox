@@ -5,7 +5,7 @@ import {
   OptionsTypesProps,
   RepositoryProps,
   GraphQLResponseProps,
-} from "@opensox/shared/types";
+} from "../types";
 
 dotenv.config();
 
