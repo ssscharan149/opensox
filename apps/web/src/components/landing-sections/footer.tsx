@@ -1,8 +1,16 @@
 import React from 'react'
-import { Twitter } from '../icons/icons'
+import { Twitter, Email } from '../icons/icons'
 import Link from 'next/link'
 
 const Footer = () => {
+    const handleEmailClick = () => {
+        const emailSubject = encodeURIComponent('[Inquiry about Opensox AI]');
+        const emailBody = encodeURIComponent('Heyyo,\n\nwanna chat?');
+        const mailtoLink = `mailto:opensoxai@protonmail.com?subject=${emailSubject}&body=${emailBody}`;
+        
+        window.open(mailtoLink, '_blank');
+    };
+
     return (
         <div id='Contact' className="border-x lg:border-x-2 border-t lg:border-t-2 border-[#202020] mt-2 mx-auto w-[98%]  flex flex-col justify-between px-4 lg:px-10 pt-4 lg:pt-10 pb-2 lg:pb-4  ">
             <div className="w-full  flex items-start justify-between pb-10">
@@ -20,9 +28,15 @@ const Footer = () => {
                     {/* <Link href="https://www.linkedin.com/in/ajeetunc/" className="w-6">
                         <LinkedIn />
                     </Link> */}
+                    <button 
+                        onClick={handleEmailClick}
+                        className="w-5 cursor-pointer hover:opacity-80 transition-opacity"
+                    >
+                        <Email />
+                    </button>
                 </div>
             </div>
-            <p className="font-mono text-center text-xs lg:text-sm text-[#b1b1b1]">© 2025 Opensox AI. All rights reserved.</p>
+            <p className="font-mono text-center text-xs lg:text-sm text-[#b1b1b1]">© {new Date().getFullYear()} Opensox AI. All rights reserved.</p>
             <p className="font-mono text-center text-xs lg:text-xs italic text-[#b1b1b1] mt-2">Building 21st century open-source infrastructure</p>
         </div>
     )
