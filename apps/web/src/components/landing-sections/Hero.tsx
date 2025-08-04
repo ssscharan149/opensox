@@ -27,7 +27,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.1 }}
                     className="w-full lg:text-2xl tracking-tight font-light sm:max-w-lg mx-auto lg:max-w-4xl lg:text-balance text-[#e1e1e1]">Find top open-source repos in seconds.
                     Filter by your language, framework, or niche.
-                    Start contributing in minutes, not hours.</motion.p>
+                    Start contributing in seconds, not hours.</motion.p>
             </div>
             <motion.div
                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
