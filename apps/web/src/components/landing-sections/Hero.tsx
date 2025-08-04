@@ -33,8 +33,9 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.2 }}
+                className="cursor-pointer z-30"
             >
-                <Link href='/dashboard/home' className='cursor-pointer z-30'>
+                <Link href='/dashboard/home' className='block'>
                     <PrimaryButtom>
                         <Terminal />
                         Get Started

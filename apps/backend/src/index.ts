@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import apiRouter from "./api_routes";
 import cors from "cors";
@@ -6,6 +7,8 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import { CorsOptions as CorsOptionsType } from "cors";
 import ipBlocker from "./middleware/ipBlock";
+
+dotenv.config();
 
 const App: Express = express();
 const PORT = process.env.PORT || 8080;

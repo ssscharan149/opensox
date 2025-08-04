@@ -31,7 +31,7 @@ const Navbar = () => {
                         className="object-cover w-full h-full"
                     />
                 </div>
-                Opensox
+                Opensox AI
             </div>
             <div className="hidden md:flex items-center gap-4 tracking-tight text-lg font-light text-[#d1d1d1]">
                 <Link href="#features" className='cursor-pointer hover:text-white'>Features</Link>
