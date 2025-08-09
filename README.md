@@ -8,7 +8,7 @@
     <br />
     <a href="#introduction"><strong>Introduction</strong></a> ·
     <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
-    <a href="#contributing"><strong>Contributing</strong></a>
+    <a href="#contributing"><strong>Contributing</strong></a> ·
     <a href="https://discord.gg/zbHzgMNBrm"><strong>Discord</strong></a>
 </p>
 
