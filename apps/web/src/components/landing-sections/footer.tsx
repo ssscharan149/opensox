@@ -1,5 +1,5 @@
 import React from 'react'
-import { Twitter, Email } from '../icons/icons'
+import { Twitter, Email, Discord, Github } from '../icons/icons'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
                     {/* <div className="w-6">
                         <Youtube />
                     </div> */}
-                    <Link href="https://x.com/opensoxai" className="w-5">
+                    <Link href="https://x.com/opensoxai" className="w-5" target="_blank" rel="noopener noreferrer">
                         <Twitter />
                     </Link>
                     {/* <Link href="https://www.linkedin.com/in/ajeetunc/" className="w-6">
@@ -34,6 +34,12 @@ const Footer = () => {
                     >
                         <Email />
                     </button>
+                    <Link href="https://discord.gg/zbHzgMNBrm" className="w-5" target="_blank" rel="noopener noreferrer">
+                        <Discord />
+                    </Link>
+                    <Link href="https://github.com/apsinghdev/opensox" className="w-5" target="_blank" rel="noopener noreferrer">
+                        <Github />
+                    </Link>
                 </div>
             </div>
             <p className="font-mono text-center text-xs lg:text-sm text-[#b1b1b1]">© {new Date().getFullYear()} Opensox AI. All rights reserved.</p>

@@ -1,4 +1,4 @@
-<h1 align="center">Opensox AI</h1>
+<h1 align="center">Opensox AI </h1>
 
 <p align="center">
     Building 21st century open-source infrastructure
