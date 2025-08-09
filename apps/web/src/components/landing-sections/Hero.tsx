@@ -45,6 +45,6 @@ const Hero = () => {
             <div className="absolute h-[50%] w-full bg-gradient-to-t from-[#101010] via-transparent to-transparent bottom-0 left-1/2 -translate-x-1/2"></div>
         </div>
     )
-}
+} 
 
 export default Hero
