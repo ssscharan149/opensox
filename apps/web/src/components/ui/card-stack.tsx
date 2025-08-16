@@ -180,7 +180,7 @@ export const CardStack = ({
                 newArray.push(firstCard)
                 return newArray
             })
-        }, 2500)
+        }, 1000)
     }
 
     const stopAutoCycle = () => {
@@ -224,10 +224,10 @@ export const CardStack = ({
                         key={card.id}
                         className={cn(
                             isActive &&
-                            "w-full h-full bg-[#111111] border border-[#292929] rounded-[2.5rem] relative z-10 p-6 flex flex-col gap-1 cursor-pointer shadow-xl shadow-black/[0.1] text-white select-none [box-shadow:0_-20px_90px_-20px_#ffffff1f_inset] overflow-hidden",
+                            "w-full h-full bg-[#111111] border border-[#282828] rounded-[2.5rem] relative z-10 p-6 flex flex-col gap-1 cursor-pointer shadow-xl shadow-black/[0.1] text-white select-none [box-shadow:0_-20px_90px_-20px_#ffffff1f_inset] overflow-hidden",
                             isActive && activeClass,
                             !isActive &&
-                            "w-full h-[100%] max-h-[110px] rounded-[2.5rem] absolute bg-[#111111] border border-[#292929] cursor-pointer p-6 flex flex-col gap-1 text-white [box-shadow:0_-30px_80px_-20px_#ffffff1f_inset]",
+                            "w-full h-[100%] max-h-[110px] rounded-[2.5rem] absolute bg-[#111111] border border-[#282828] cursor-pointer p-6 flex flex-col gap-1 text-white [box-shadow:0_-30px_80px_-20px_#ffffff1f_inset]",
                             !isActive && inactiveClass
                         )}
                         style={{
@@ -243,7 +243,7 @@ export const CardStack = ({
                             opacity: [0, 0, 1]
                         }}
                         transition={{
-                            duration: 0.4,
+                            duration: 0.32,
                             ease: easeOut,
                         }}
                         onClick={() => handleCardClick(card.id)}
