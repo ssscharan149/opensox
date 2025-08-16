@@ -82,7 +82,7 @@ const Bento = () => {
                                 transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', delay: 0.35 }}
                                 className='tracking-tight text-sm lg:text-lg text-[#d1d1d1]'>Get personalized repos you can contribute to.</motion.p>
                         </div>
-                        <div className="h-full overflow-hidden w-full flex items-start lg:pt-10 lg:pb-4  relative z-10">
+                        <div className="h-[400px] overflow-hidden w-full flex items-start lg:pt-10 lg:pb-4  relative z-10">
                             <AnimatedList className='w-full'>
                                 {notifications.map((item, idx) => (
                                     <Notification {...item} key={idx} />
