@@ -1,12 +1,12 @@
 import React from 'react'
-import { Twitter, Email, Discord, Github } from '../icons/icons'
+import { Twitter, Email, Discord } from '../icons/icons'
 import Link from 'next/link'
 
 const Footer = () => {
     const handleEmailClick = () => {
         const emailSubject = encodeURIComponent('[Inquiry about Opensox AI]');
         const emailBody = encodeURIComponent('Heyyo,\n\nwanna chat?');
-        const mailtoLink = `mailto:opensoxai@protonmail.com?subject=${emailSubject}&body=${emailBody}`;
+        const mailtoLink = `mailto:hi@opensox.ai?subject=${emailSubject}&body=${emailBody}`;
         
         window.open(mailtoLink, '_blank');
     };
@@ -37,9 +37,9 @@ const Footer = () => {
                     <Link href="https://discord.gg/zbHzgMNBrm" className="w-6" target="_blank" rel="noopener noreferrer">
                         <Discord />
                     </Link>
-                    <Link href="https://github.com/apsinghdev/opensox" className="w-6" target="_blank" rel="noopener noreferrer">
+                    {/* <Link href="https://github.com/apsinghdev/opensox" className="w-6" target="_blank" rel="noopener noreferrer">
                         <Github />
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
             <p className="font-mono text-center text-xs lg:text-sm text-[#b1b1b1]">© {new Date().getFullYear()} Opensox AI. All rights reserved.</p>

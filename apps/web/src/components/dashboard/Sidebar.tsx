@@ -32,16 +32,21 @@ export default function Sidebar() {
   };
 
   const supportClickHandler = () => {
-    window.open(
-      "https://buy.polar.sh/polar_cl_GYjSitlWxG4SViQOp19DyjNPfjv0DIXjwNj7ZY_8h8E",
-      "_blank"
-    );
+    window.open("https://pages.razorpay.com/pl_R6WHnm15Fm98fI/view", "_blank");
   };
   const shareProjectHandler = () => {
     const msg: string =
       "Check opensox.in\n\nIt helps you find the perfect open-source project to contribute within 10 minutes.\n\ncreated by @ajeetunc";
     const xUrl = `https://x.com/intent/post?text=${encodeURIComponent(msg)}`;
     window.open(xUrl, "_blank");
+  };
+
+  const handleEmailClick = () => {
+    const emailSubject = encodeURIComponent("[Inquiry about Opensox AI]");
+    const emailBody = encodeURIComponent("Heyyo,\n\nwanna chat?");
+    const mailtoLink = `mailto:hi@opensox.ai?subject=${emailSubject}&body=${emailBody}`;
+
+    window.open(mailtoLink, "_blank");
   };
 
   return (
@@ -76,7 +81,7 @@ export default function Sidebar() {
           onclick={reqFeatureHandler}
         ></SidebarItem>
         <SidebarItem
-          itemName="Premium guidance"
+          itemName="Opensox premium"
           onclick={supportClickHandler}
         ></SidebarItem>
         <SidebarItem
@@ -84,7 +89,11 @@ export default function Sidebar() {
           onclick={shareProjectHandler}
         ></SidebarItem>
         <SidebarItem
-          itemName="Twitter @ajeetunc"
+          itemName="Contact"
+          onclick={handleEmailClick}
+        ></SidebarItem>
+        <SidebarItem
+          itemName="Twitter"
           onclick={() => {
             window.open("https://x.com/ajeetunc", "_blank");
           }}
