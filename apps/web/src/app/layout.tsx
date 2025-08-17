@@ -8,6 +8,7 @@ import { PostHogProvider } from "./providers";
 import { getServerSession } from "next-auth/next";
 import { authConfig } from "@/lib/auth/config";
 import { SessionWrapper } from "./SessionWrapper";
+import SupportDropdown from "@/components/landing-sections/SupportDropdown";
 
 const dmReg = localFont({
   src: "./fonts/DMMono-Regular.ttf",
@@ -51,6 +52,7 @@ export default async function RootLayout({
         </PostHogProvider>
         <Analytics />
         <SpeedInsights />
+        <SupportDropdown />
       </body>
     </html>
   );
