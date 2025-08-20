@@ -42,7 +42,7 @@ notifications = Array.from({ length: 10 }, () => notifications).flat();
 const Bento = () => {
     return (
         <div id='features' className="flex flex-col w-full">
-            <div className="px-[30px] py-10 h-[160px] relative overflow-hidden border-b border-[#202020] ">
+            <div className="px-[30px] py-10 h-[160px] relative overflow-hidden border-b border-[#252525] ">
                 <motion.h4
                     initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -67,9 +67,9 @@ const Bento = () => {
                     />
                 </div>
             </div>
-            <div className="w-full border-b border-[#202020] flex flex-col  lg:flex-row overflow-hidden">
-                <div className="lg:w-1/3 border-b lg:border-b-0 lg:border-r border-[#202020] lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full ">
-                    <div className="border border-dashed border-[#202020] w-full h-full  relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
+            <div className="w-full border-b border-[#252525] flex flex-col  lg:flex-row overflow-hidden">
+                <div className="lg:w-1/3 border-b lg:border-b-0 lg:border-r border-[#252525] lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full ">
+                    <div className="border border-dashed border-[#252525] w-full h-full  relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
                         <div className="space-y-1 flex-shrink-0 z-10">
                             <motion.h5
                                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -104,8 +104,8 @@ const Bento = () => {
                         <div className="h-[90px] absolute left-1/2 -translate-x-1/2 -bottom-7 w-full bg-[#101010] blur-[15px] z-20"></div>
                     </div>
                 </div>
-                <div className="border-b lg:border-b-0 lg:border-r border-[#202020] lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
-                    <div className="border border-dashed border-[#202020] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 space-y-1 flex flex-col items-center justify-start gap-4 z-10">
+                <div className="border-b lg:border-b-0 lg:border-r border-[#252525] lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
+                    <div className="border border-dashed border-[#252525] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 space-y-1 flex flex-col items-center justify-start gap-4 z-10">
                         <div className="w-full z-10">
                             <motion.h5
                                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -137,7 +137,7 @@ const Bento = () => {
                     </div>
                 </div>
                 <div className="lg:w-1/3 lg:aspect-square relative overflow-hidden p-2 flex-shrink-0 space-y-1 h-[400px] lg:h-full">
-                    <div className="border border-dashed border-[#202020] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
+                    <div className="border border-dashed border-[#252525] w-full h-full relative overflow-hidden p-[30px] flex-shrink-0 flex flex-col gap-4 lg:gap-0 ">
                         <div className="space-y-1 flex-shrink-0 z-10">
                             <motion.h5
                                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}

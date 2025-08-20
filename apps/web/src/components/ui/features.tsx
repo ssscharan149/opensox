@@ -180,7 +180,7 @@ export default function Features({
     return (
         <section ref={ref} id="features">
             <div className="">
-                <div className="w-full lg:max-w-[1220px] mx-auto border-r border-[#202020]">
+                <div className="w-full lg:max-w-[1220px] mx-auto border-r border-[#252525]">
                     <div className="mx-auto h-full grid lg:grid-cols-2 items-center">
                         <div
                             className={` hidden lg:flex order-1 lg:order-[0] ${ltr ? "lg:order-2 lg:justify-end" : "justify-start"
@@ -198,7 +198,7 @@ export default function Features({
                                 {data.map((item, index) => (
                                     <AccordionItem
                                         key={item.id}
-                                        className="relative border-b border-x last:border-y-0 border-[#202020] p-10"
+                                        className="relative border-b border-x last:border-y-0 border-[#252525] p-10"
                                         value={`item-${index}`}
                                     >
                                         {linePosition === "left" || linePosition === "right" ? (

@@ -14,8 +14,8 @@ import React from 'react'
 const Landing = () => {
     return (
         <main className='min-h-screen w-full bg-[#101010] text-white font-sans overflow-hidden relative'>
-            <Navbar/>
-            <div className="min-h-screen w-full max-w-[2000px] mx-auto border-x border-[#202020] overflow-hidden">
+            <Navbar />
+            <div className="min-h-screen w-full max-w-[2000px] mx-auto border-x border-[#252525] overflow-hidden">
                 <Hero />
                 <Bento />
                 <Video />

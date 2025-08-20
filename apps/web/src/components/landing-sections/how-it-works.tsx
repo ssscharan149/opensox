@@ -32,8 +32,8 @@ const data = [
 
 export default function HowItWorks() {
     return (
-        <div id="HIW" className="border-b border-[#202020]">
-            <div className="px-[30px] py-10 h-[120px] lg:h-[180px] relative overflow-hidden border-b border-[#202020] ">
+        <div id="HIW" className="border-b border-[#252525]">
+            <div className="px-[30px] py-10 h-[120px] lg:h-[180px] relative overflow-hidden border-b border-[#252525] ">
                 <h4 className='font-medium w-full text-3xl lg:text-5xl tracking-tight absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 text-center text-balance'>How it Works</h4>
                 <div
                     style={{
@@ -58,10 +58,10 @@ export default function HowItWorks() {
                     style={{
                         width: "50px",
                         height: "100%",
-                        "--pattern-fg": "#202020",
-                        borderRight: "1px solid #202020",
+                        "--pattern-fg": "#252525",
+                        borderRight: "1px solid #252525",
                         backgroundImage:
-                            "repeating-linear-gradient(315deg, #202020 0, #202020 1px, transparent 0, transparent 50%)",
+                            "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
                         backgroundSize: "10px 10px",
                         backgroundAttachment: "fixed",
                     } as React.CSSProperties}
@@ -71,10 +71,10 @@ export default function HowItWorks() {
                     style={{
                         width: "50px",
                         height: "100%",
-                        "--pattern-fg": "#202020",
-                        borderLeft: "1px solid #202020",
+                        "--pattern-fg": "#252525",
+                        borderLeft: "1px solid #252525",
                         backgroundImage:
-                            "repeating-linear-gradient(315deg, #202020 0, #202020 1px, transparent 0, transparent 50%)",
+                            "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
                         backgroundSize: "10px 10px",
                         backgroundAttachment: "fixed",
                     } as React.CSSProperties}

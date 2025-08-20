@@ -7,12 +7,11 @@ const Footer = () => {
         const emailSubject = encodeURIComponent('[Inquiry about Opensox AI]');
         const emailBody = encodeURIComponent('Heyyo,\n\nwanna chat?');
         const mailtoLink = `mailto:hi@opensox.ai?subject=${emailSubject}&body=${emailBody}`;
-        
         window.open(mailtoLink, '_blank');
     };
 
     return (
-        <div id='Contact' className="border-x lg:border-x-2 border-t lg:border-t-2 border-[#202020] mt-2 mx-auto w-[98%]  flex flex-col justify-between px-4 lg:px-10 pt-4 lg:pt-10 pb-2 lg:pb-4  ">
+        <div id='Contact' className="border-x lg:border-x-2 border-t lg:border-t-2 border-[#252525] mt-2 mx-auto w-[98%]  flex flex-col justify-between px-4 lg:px-10 pt-4 lg:pt-10 pb-2 lg:pb-4  ">
             <div className="w-full  flex items-start justify-between pb-10">
                 <div className="">
                     <h4 className='text-3xl lg:text-7xl lg:text-[5rem] font-medium tracking-tighter'>Opensox AI</h4>
@@ -28,7 +27,7 @@ const Footer = () => {
                     {/* <Link href="https://www.linkedin.com/in/ajeetunc/" className="w-6">
                         <LinkedIn />
                     </Link> */}
-                    <button 
+                    <button
                         onClick={handleEmailClick}
                         className="w-6 cursor-pointer hover:opacity-80 transition-opacity"
                     >
