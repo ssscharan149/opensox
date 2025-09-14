@@ -1,7 +1,7 @@
 
 import { Sparkles, Upload, Zap } from "lucide-react";
 import Features from "../ui/features";
-import { FlickeringGrid } from "../ui/flickering-grid";
+import Header from "../ui/header";
 
 const data = [
     {
@@ -33,30 +33,10 @@ const data = [
 export default function HowItWorks() {
     return (
         <div id="HIW" className="border-b border-[#252525]">
-            <div className="px-[30px] py-10 h-[120px] lg:h-[180px] relative overflow-hidden border-b border-[#252525] ">
-                <h4 className='font-medium w-full text-3xl lg:text-5xl tracking-tight absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 text-center text-balance'>How it Works</h4>
+            <Header title="How it Works"/>
+            <div className="w-full relative px-[30px] lg:px-[50px]">
                 <div
                     style={{
-                        background: 'radial-gradient(circle at center, #101010 30%, transparent 100%)',
-                    }}
-                    className=" h-full w-[100%] right-0 top-0 z-20 absolute"></div>
-                <div className="absolute right-0 w-[100%] h-full top-0 z-10 opacity-50">
-                    <FlickeringGrid
-                        className="absolute -z-0  top-0 right-0"
-                        squareSize={3}
-                        gridGap={6}
-                        color="#3F1FBC"
-                        maxOpacity={1}
-                        flickerChance={0.1}
-                        height={200}
-                        width={2000}
-                    />
-                </div>
-            </div>
-            <div className="w-full relative px-[50px]">
-                <div
-                    style={{
-                        width: "50px",
                         height: "100%",
                         "--pattern-fg": "#252525",
                         borderRight: "1px solid #252525",
@@ -65,11 +45,10 @@ export default function HowItWorks() {
                         backgroundSize: "10px 10px",
                         backgroundAttachment: "fixed",
                     } as React.CSSProperties}
-                    className='absolute left-0 top-0'
+                    className='w-[30px] lg:w-[50px] absolute left-0 top-0'
                 />
                 <div
                     style={{
-                        width: "50px",
                         height: "100%",
                         "--pattern-fg": "#252525",
                         borderLeft: "1px solid #252525",
@@ -78,7 +57,7 @@ export default function HowItWorks() {
                         backgroundSize: "10px 10px",
                         backgroundAttachment: "fixed",
                     } as React.CSSProperties}
-                    className='absolute right-0 top-0 '
+                    className='w-[30px] lg:w-[50px] absolute right-0 top-0 '
                 />
                 <Features data={data} />
             </div>

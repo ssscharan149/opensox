@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { Twitter, Email, Discord } from '../icons/icons'
 import Link from 'next/link'
