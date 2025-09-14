@@ -365,7 +365,9 @@ const SecondaryPricingCard = () => {
               <h2 className='text-6xl lg:text-[90px] lg:leading-[82px] tracking-tight font-semibold'>$15 <span className='text-4xl'>/ month</span></h2>
             </div>
             <div className="w-full border-dashed border-border-primary px-6 lg:px-10 py-4 ">
-              <PrimaryButton classname='w-full max-w-[500px] mx-auto font-semibold'>Subscribe $15</PrimaryButton>
+              <Link target='_blank' href="https://pages.razorpay.com/pl_R6WHnm15Fm98fI/view" className='cursor-pointer z-30'>
+                <PrimaryButton classname='w-full max-w-[500px] mx-auto font-semibold'>Subscribe $15</PrimaryButton>
+              </Link>
             </div>
             <div className="w-full border-dashed border-border-primary px-6 lg:px-10 py-4 flex flex-col gap-4 flex-1">
               <h2 className='text-lg lg:text-xl tracking-tight text-left font-bold'>What you get immediately:</h2>
