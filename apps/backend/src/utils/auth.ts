@@ -19,7 +19,7 @@ export const verifyToken = async (token: string) => {
       throw new Error("Invalid token payload");
     }
 
-    const user = prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { email: decoded.email },
     });
 

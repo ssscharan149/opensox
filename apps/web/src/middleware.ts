@@ -10,7 +10,7 @@ export async function middleware(req: NextRequest) {
     req: adaptedReq as any,
     secret: process.env.NEXTAUTH_SECRET,
   });
-  const protectedPaths = ["/dashboard/home", "/dashboard/projects"];
+  const protectedPaths = ["/dashboard"];
   if (protectedPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
     if (!token) {
       const signInUrl = new URL("/login", req.url);
