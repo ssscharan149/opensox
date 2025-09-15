@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { IconWrapper } from "../ui/IconWrapper";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useShowSidebar } from "@/store/useShowSidebar";
+import { signOut } from "next-auth/react";
 
 const SIDEBAR_ROUTES = [
   {
@@ -49,6 +50,10 @@ export default function Sidebar() {
     window.open(mailtoLink, "_blank");
   };
 
+  const handleLogout = () => {
+    signOut({callbackUrl: "/"});
+  }
+
   return (
     <div
       className={`h-full w-[60%] lg:w-[50%] xl:w-auto flex flex-col rounded-r-lg bg-ox-black-1 border border-l-0 border-ox-gray z-50 ${showSidebar ? "fixed left-0 top-0 bottom-0" : ""}`}
@@ -91,6 +96,10 @@ export default function Sidebar() {
         <SidebarItem
           itemName="Contact"
           onclick={handleEmailClick}
+        ></SidebarItem>
+        <SidebarItem
+          itemName="Logout"
+          onclick={handleLogout}
         ></SidebarItem>
         <SidebarItem
           itemName="Twitter"
