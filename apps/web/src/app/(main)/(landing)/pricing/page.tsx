@@ -87,31 +87,8 @@ const Pricing = () => {
       <main className="w-full  overflow-hidden flex flex-col items-center justify-center relative">
         <Header title="We are working on Opensox 2.0" />
         <div className="flex flex-col bg-[#151515]/20 backdrop-blur-xl relative w-full ">
-          <div className="h-full px-[30px] lg:px-[50px] pv relative" >
-            <div
-              style={{
-                height: "100%",
-                "--pattern-fg": "#252525",
-                borderRight: "1px solid #252525",
-                backgroundImage:
-                  "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                backgroundSize: "10px 10px",
-                backgroundAttachment: "fixed",
-              } as React.CSSProperties}
-              className='absolute left-0 top-0 w-[30px] lg:w-[50px]'
-            />
-            <div
-              style={{
-                height: "100%",
-                "--pattern-fg": "#252525",
-                borderLeft: "1px solid #252525",
-                backgroundImage:
-                  "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                backgroundSize: "10px 10px",
-                backgroundAttachment: "fixed",
-              } as React.CSSProperties}
-              className='absolute right-0 top-0 w-[30px] lg:w-[50px]'
-            />
+          <div className="h-full  pv relative" >
+            
             <div className=" py-8 border-b border-[#252525]">
               <motion.h2
                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -168,31 +145,8 @@ const Pricing = () => {
             </div>
 
           </div>
-          <div className="h-full px-[30px] lg:px-[50px] relative " >
-            <div
-              style={{
-                height: "100%",
-                "--pattern-fg": "#252525",
-                borderRight: "1px solid #252525",
-                backgroundImage:
-                  "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                backgroundSize: "10px 10px",
-                backgroundAttachment: "fixed",
-              } as React.CSSProperties}
-              className='absolute left-0 top-0 w-[30px] lg:w-[50px]'
-            />
-            <div
-              style={{
-                height: "100%",
-                "--pattern-fg": "#252525",
-                borderLeft: "1px solid #252525",
-                backgroundImage:
-                  "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                backgroundSize: "10px 10px",
-                backgroundAttachment: "fixed",
-              } as React.CSSProperties}
-              className='absolute right-0 top-0 w-[30px] lg:w-[50px]'
-            />
+          <div className="h-full  relative " >
+            
             <div className="py-8 border-b border-[#252525]">
               <motion.h2
                 initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -216,33 +170,6 @@ const Pricing = () => {
 
           </div>
           <div className="relative border-b border-[#252525] lg:pb-10">
-            <div className="hidden lg:block">
-              <div
-                style={{
-                  height: "100%",
-                  "--pattern-fg": "#252525",
-                  borderRight: "1px solid #252525",
-                  backgroundImage:
-                    "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                  backgroundSize: "10px 10px",
-                  backgroundAttachment: "fixed",
-                } as React.CSSProperties}
-                className='absolute left-0 top-0 w-[30px] lg:w-[50px]'
-              />
-              <div
-                style={{
-                  height: "100%",
-                  "--pattern-fg": "#252525",
-                  borderLeft: "1px solid #252525",
-                  backgroundImage:
-                    "repeating-linear-gradient(315deg, #252525 0, #252525 1px, transparent 0, transparent 50%)",
-                  backgroundSize: "10px 10px",
-                  backgroundAttachment: "fixed",
-                } as React.CSSProperties}
-                className='absolute right-0 top-0 w-[30px] lg:w-[50px]'
-              />
-
-            </div>
 
             <div className="flex flex-col gap-5 lg:gap-10 py-4 bg-[#151515]/20 backdrop-blur-xl h-full relative w-full overflow-hidden  px-4 lg:px-10">
               <div className="absolute inset-0 -top-72">
@@ -261,6 +188,9 @@ const Pricing = () => {
             </div>
           </div>
           <TestimonialsSection/>
+          <div className=" border-b border-[#252525] text-center py-4 font-bold px-4">
+            NOTE: For any doubts or queries, feel free to ping us at <Link href="mailto:hi@opensox.ai" className='hover:underline bg-gradient-to-b from-[#a472ea] via-[#a472ea]/80 to-[#432ba0] bg-clip-text text-transparent'>hi@opensox.ai</Link>
+          </div>
         </div>
       </main>
       <Footer />
@@ -500,9 +430,9 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <div className=" text-white min-h-screen">
+    <div className=" text-white ">
       <Header title="What our Premium customers say about us" />
-      <div className="border-b border-x border-[#252525] w-full min-h-[80dvh] grid grid-cols-1 lg:grid-cols-7">
+      <div className="border-b  border-[#252525] w-full min-h-[80dvh] grid grid-cols-1 lg:grid-cols-7">
 
         <div className="lg:col-span-2 flex flex-col font-medium divide-y divide-[#252525]">
           {groupedTestimonials[1].map((testimonial) => (
