@@ -1,14 +1,18 @@
 import express from "express";
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { appRouter } from './trpc.js';
+import { createContext } from "./context.js";
+import prismaModule from "./prisma.js";
 
 const app = express();
+
+prismaModule.connectDB();
 
 app.use(
   '/trpc',
   trpcExpress.createExpressMiddleware({
     router: appRouter,
-    createContext: () => ({}),
+    createContext,
   })
 );
 
