@@ -22,9 +22,9 @@ const CheckoutConfirmation: React.FC<CheckoutConfirmationProps> = ({
         {/* Main Message */}
         <div className="text-center space-y-6">
           <p className="text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-3xl mx-auto">
-            Hell yeah, you've made it! Congratulations on becoming the premium
-            member of Opensox AI. Very soon you'll receive an email with the
-            next steps from our side.
+            Hell yeah, you&apos;ve made it! Congratulations on becoming the
+            premium member of Opensox AI. Very soon you&apos;ll receive an email
+            with the next steps from our side.
           </p>
 
           <p className="text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-3xl mx-auto">
