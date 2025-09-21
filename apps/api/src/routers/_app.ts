@@ -1,4 +1,6 @@
+import { query } from 'express';
 import { router, publicProcedure } from '../trpc.js';
+import { queryRouter } from './queries.js';
 import { z } from 'zod';
 
 const testRouter = router({
@@ -11,6 +13,7 @@ const testRouter = router({
 
 export const appRouter = router({
   hello: testRouter,
+  query: queryRouter
 });
 
 export type AppRouter = typeof appRouter;
