@@ -22,7 +22,7 @@ const Footer = () => {
                     {/* <div className="w-6">
                         <Youtube />
                     </div> */}
-                    <Link href="https://x.com/opensoxai" className="w-6" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://x.com/opensoxai" className="w-5" target="_blank" rel="noopener noreferrer">
                         <Twitter />
                     </Link>
                     {/* <Link href="https://www.linkedin.com/in/ajeetunc/" className="w-6">
@@ -34,7 +34,7 @@ const Footer = () => {
                     >
                         <Email />
                     </button>
-                    <Link href="https://discord.gg/zbHzgMNBrm" className="w-6" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://discord.gg/zbHzgMNBrm" className="w-7" target="_blank" rel="noopener noreferrer">
                         <Discord />
                     </Link>
                     {/* <Link href="https://github.com/apsinghdev/opensox" className="w-6" target="_blank" rel="noopener noreferrer">

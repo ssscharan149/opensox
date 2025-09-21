@@ -215,7 +215,7 @@ const Pricing = () => {
             </div>
 
           </div>
-          <div className="relative">
+          <div className="relative border-b border-[#252525] lg:pb-10">
             <div className="hidden lg:block">
               <div
                 style={{
@@ -260,7 +260,7 @@ const Pricing = () => {
 
             </div>
           </div>
-
+          <TestimonialsSection/>
         </div>
       </main>
       <Footer />
@@ -365,7 +365,7 @@ const SecondaryPricingCard = () => {
               <h2 className='text-6xl lg:text-[90px] lg:leading-[82px] tracking-tight font-semibold'>$15 <span className='text-4xl'>/ month</span></h2>
             </div>
             <div className="w-full border-dashed border-border-primary px-6 lg:px-10 py-4 ">
-              <Link target='_blank' href="https://pages.razorpay.com/pl_R6WHnm15Fm98fI/view" className='cursor-pointer z-30'>
+              <Link target='_blanko' href="https://pages.razorpay.com/pl_R6WHnm15Fm98fI/view" className='cursor-pointer z-30'>
                 <PrimaryButton classname='w-full max-w-[500px] mx-auto font-semibold'>Subscribe $15</PrimaryButton>
               </Link>
             </div>
@@ -397,3 +397,147 @@ const SecondaryPricingCard = () => {
     </div>
   )
 }
+
+
+const PremiumTestimonialCard = ({ username = "Username", showPremium = true }) => {
+  return (
+    <div className="flex gap-4">
+      <div className="size-16 rounded-full border"></div>
+      <div className="">
+        <p className='text-xl'>{username}</p>
+        {showPremium && (
+          <div className="bg-gradient-to-b from-[#ad84e7] via-[#986cd6] to-[#432d8e] bg-clip-text text-transparent">
+            <p className=''>Opensox Premium</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      id: 1,
+      username: "Alex Johnson",
+      content: "Getting the Opensox Premium Subscription has been such a game-changer for me. I really like the personal touch in the way the team guides you-it feels like someone is genuinely there to help you navigate. It gave me the initial push I needed and made it so much easier to cut through all the chaos and focus on the right and simple steps. The best part is, it helps you start your open source journey quickly and I know I can reach out to the team anytime. Honestly, it's been an awesome experience so far!",
+      column: 1
+    },
+    {
+      id: 2,
+      username: "Sarah Chen",
+      content: "My experience with your guidance and opensox has been great. Your tips have really helped in doing my tasks quicker and better. And I would definitely recommend others to opt for opensox premium.",
+      column: 1
+    },
+    {
+      id: 3,
+      username: "Michael Rodriguez",
+      content: (
+        <div className="space-y-3 text-pretty">
+          <p>
+            Okay so there are a few things I genuinely value about OpenSox Premium, and I'll
+            focus on the core points because everything else is just a natural extension of
+            these.
+          </p>
+          <ul className="list-disc space-y-3 pl-6">
+            <li>
+              First, the pricing. To me, it&apos;s more than fair for the kind of value on the table. In
+              fact, I see it as something that can yield long-term returns if you&apos;re serious
+              about putting in the work.
+            </li>
+            <li>
+              The onboarding call was one of the best parts. Spending 30+ minutes just to
+              understand where I stand, whether I&apos;m starting out or already experienced and
+              aligning the guidance with my goals. That level of personalization is rare and it
+              set the tone right from the start.
+            </li>
+            <li>
+              Another thing l&apos;ve appreciated is the transparency. No sugarcoating, no vague
+              talk, you share real experiences, honest opinions and advice that actually
+              holds weight. That alone builds credibility and trust.
+            </li>
+            <li>
+              And yeah, the support also goes beyond the program itself. Getting advice on
+              personal doubts and extra tips outside the set curriculum (of course,
+              sometimes, not always lol!).
+            </li>
+            <li>
+              The regular check-ins are also a huge plus. They help track progress, keep me
+              accountable, and ensure l&apos;m moving in the right direction.
+            </li>
+            <li>
+              Overall, I&apos;d absolutely recommend OpenSox Premium to anyone serious about
+              open source. The personalized guidance is exactly what most of us hope for,
+              since everyone is at a different stage of their journey.
+            </li>
+            <li>
+              A personal opinion btw :) My only hope is that the same quality continues even as
+              more people join and judging from what l&apos;ve seen so far, I&apos;m confident it will.
+            </li>
+          </ul>
+        </div>
+      ),
+      column: 2
+    },
+    {
+      id: 4,
+      username: "Emma Thompson",
+      content: "This is really awesome 👍🏼",
+      column: 3
+    },
+    {
+      id: 5,
+      username: "David Kim",
+      content: "Yes I would totally recommend it for anyone who is serious about getting into open source. We have discussed very insightful key methods that are very helpful for a beginner who has no prior experience to start contributing. You as an experienced open source developer and contributor have shared your learnings which come from experience to us which not only makes us understand the complexity of large codebases but gives us a kickstart over other candidates. Your personal guidance is precious and invaluable for us",
+      column: 3
+    }
+  ];
+
+  const groupedTestimonials = {
+    1: testimonials.filter(t => t.column === 1),
+    2: testimonials.filter(t => t.column === 2),
+    3: testimonials.filter(t => t.column === 3)
+  };
+
+  return (
+    <div className=" text-white min-h-screen">
+      <Header title="What our Premium customers say about us" />
+      <div className="border-b border-x border-[#252525] w-full min-h-[80dvh] grid grid-cols-1 lg:grid-cols-7">
+
+        <div className="lg:col-span-2 flex flex-col font-medium divide-y divide-[#252525]">
+          {groupedTestimonials[1].map((testimonial) => (
+            <div key={testimonial.id} className="p-6 lg:p-10 flex flex-col gap-6">
+              <PremiumTestimonialCard username={testimonial.username} />
+              <div className="text-pretty">
+                {typeof testimonial.content === 'string' ? testimonial.content : testimonial.content}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="h-full border-y lg:border-x lg:border-y-0 border-[#252525] p-6 lg:p-10 mx-auto flex flex-col gap-6 flex-shrink-0 lg:col-span-3 font-medium">
+          {groupedTestimonials[2].map((testimonial) => (
+            <div key={testimonial.id} className="flex flex-col gap-6">
+              <PremiumTestimonialCard username={testimonial.username} />
+              <div>
+                {typeof testimonial.content === 'string' ? testimonial.content : testimonial.content}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="lg:col-span-2 flex flex-col font-medium divide-y divide-[#252525]">
+          {groupedTestimonials[3].map((testimonial) => (
+            <div key={testimonial.id} className="p-6 lg:p-10 flex flex-col gap-6">
+              <PremiumTestimonialCard username={testimonial.username} />
+              <div className="text-pretty">
+                {typeof testimonial.content === 'string' ? testimonial.content : testimonial.content}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
