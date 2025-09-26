@@ -53,7 +53,7 @@ const whySub = [
   },
   {
     content:
-      "This offer is only available for the first 1000 (12 slots booked) users",
+      "This offer is only available for the first 1000 (4 slots booked) users",
   },
   {
     content:
