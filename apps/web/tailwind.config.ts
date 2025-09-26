@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "#101010",
+        foreground: "#ffffff",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -41,6 +41,7 @@ const config: Config = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         border: "hsl(var(--border))",
+        "border-primary": "#252525",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         chart: {
@@ -87,6 +88,17 @@ const config: Config = {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
+        shine: {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -99,6 +111,7 @@ const config: Config = {
         "spin-slow-reverse": "spin 20s linear infinite reverse",
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        shine: "shine var(--duration) infinite linear",
       },
       fontFamily: {
         DMfont: ["var(--font-dm-mono-med)", "var(--font-dm-mono-req)"],

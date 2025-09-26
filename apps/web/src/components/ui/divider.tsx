@@ -3,7 +3,7 @@ import React from 'react'
 
 const Divider = ({ className }: { className?: string }) => {
   return (
-    <div className={cn('w-full h-px bg-[#202020]', className)}></div>
+    <div className={cn('w-full h-px bg-[#252525]', className)}></div>
   )
 }
 
