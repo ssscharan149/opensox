@@ -1,19 +1,22 @@
-import { query } from 'express';
-import { router, publicProcedure } from '../trpc.js';
-import { queryRouter } from './queries.js';
-import { z } from 'zod';
+import { router, publicProcedure } from "../trpc.js";
+import { queryRouter } from "./queries.js";
+import { userRouter } from "./user.js";
+import { projectRouter } from "./projects.js";
+import { z } from "zod";
 
 const testRouter = router({
-    test: publicProcedure
+  test: publicProcedure
     .input(z.object({ name: z.string().optional() }))
     .query(({ input }) => {
-      return { message: `Hhhhello, ${input.name ?? 'world'}!` };
+      return { message: `Hhhhello, ${input.name ?? "world"}!` };
     }),
-})
+});
 
 export const appRouter = router({
   hello: testRouter,
-  query: queryRouter
+  query: queryRouter,
+  user: userRouter,
+  project: projectRouter,
 });
 
 export type AppRouter = typeof appRouter;
