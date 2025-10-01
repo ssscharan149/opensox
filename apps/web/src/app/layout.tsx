@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { authConfig } from "@/lib/auth/config";
 import { SessionWrapper } from "./SessionWrapper";
 import SupportDropdown from "@/components/landing-sections/SupportDropdown";
+import { TRPCProvider } from "@/providers/trpc-provider";
 
 const dmReg = localFont({
   src: "./fonts/DMMono-Regular.ttf",
@@ -40,16 +41,18 @@ export default async function RootLayout({
       <body
         className={`${dmMed.variable} ${dmReg.variable} antialiased bg-background`}
       >
-        <PostHogProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <SessionWrapper session={session}>{children}</SessionWrapper>
-          </ThemeProvider>
-        </PostHogProvider>
+        <TRPCProvider>
+          <PostHogProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <SessionWrapper session={session}>{children}</SessionWrapper>
+            </ThemeProvider>
+          </PostHogProvider>
+        </TRPCProvider>
         <Analytics />
         <SpeedInsights />
         <SupportDropdown />
