@@ -40,7 +40,18 @@ const opensoxFeatures = [
     description: [
       "A comprehensive sheet of 30+ modules along with detailed videos to give you a clear path to start rocking in open source.",
       "It will contain videos, resouces and hand made docs.",
-      "In each of the 30 steps, you will learn, then apply, If stuck, we'll help and then we'll do an accountability check.",
+      <>
+        In each of the 30 steps, you will learn, then apply, If stuck,
+        we&apos;ll help and then we&apos;ll do an accountability check.{" "}
+        <Link
+          href="https://www.youtube.com/playlist?list=PLiWTvT-J4wHhDh-Mngogynfusor-694G-"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline text-[#a472ea]"
+        >
+          Check here.
+        </Link>
+      </>,
     ],
     features: [],
   },
@@ -49,15 +60,15 @@ const opensoxFeatures = [
 const whySub = [
   {
     content:
-      "Currently, Opensox 2.0 is in progress (70% done) so till the launch, we are offering premium plan at a discounted price - $20 for the whole year",
+      "Currently, Opensox 2.0 is in progress (70% done) so till the launch, we are offering premium plan at a discounted price - $49 for the whole year",
   },
   {
     content:
-      "This offer is only available for the first 1000 (4 slots booked) users",
+      "This offer is only available for the first 1000 (20 slots booked) users",
   },
   {
     content:
-      "After the launch, this $20 offer be removed and Opensox premium will be around $70 for whole year ($6/mo.)",
+      "After the launch, this $49 offer be removed and Opensox premium will be around ~ $120 for whole year ($10/mo.)",
   },
 ];
 
@@ -352,7 +363,7 @@ const SecondaryPricingCard = () => {
 
             <div className="w-full border-dashed border-border-primary px-6 lg:px-10  py-4">
               <h2 className="text-6xl lg:text-[90px] lg:leading-[82px] tracking-tight font-semibold">
-                $20 <span className="text-4xl">/ year</span>
+                $49 <span className="text-4xl">/ year</span>
               </h2>
             </div>
             <div className="w-full border-dashed border-border-primary px-6 lg:px-10 py-4 ">
