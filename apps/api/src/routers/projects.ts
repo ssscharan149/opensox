@@ -2,6 +2,7 @@ import { router, publicProcedure } from "../trpc.js";
 import { z } from "zod";
 import type { RepositoryProps } from "@opensox/shared";
 import { projectService } from "../services/project.service.js";
+import { queryService } from "../services/query.service.js";
 
 const filterPropsSchema = z.object({
   language: z.string().optional(),
@@ -37,7 +38,8 @@ const inputSchema = z.object({
 export const projectRouter = router({
   getGithubProjects: publicProcedure
     .input(inputSchema)
-    .query(async ({ input }): Promise<RepositoryProps[]> => {
+    .query(async ({ input, ctx }): Promise<RepositoryProps[]> => {
+      await queryService.incrementQueryCount(ctx.db.prisma);
       return await projectService.fetchGithubProjects(
         input.filters as any,
         input.options as any
