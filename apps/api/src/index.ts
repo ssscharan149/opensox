@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import type { Request, Response } from "express";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import { appRouter } from "../src/routers/_app.js";
+import { appRouter } from "./routers/_app.js";
 import { createContext } from "./context.js";
 import prismaModule from "./prisma.js";
 import cors from "cors";
