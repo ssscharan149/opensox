@@ -1,37 +1,24 @@
 import { useCallback } from "react";
 import { FilterProps, RepositoryProps } from "@opensox/shared/types";
-import { CONFIG } from "@/utils/config";
-import { useSession } from "next-auth/react";
+import { trpc } from "@/lib/trpc";
 
 export const useGetProjects = () => {
-  const { data: session } = useSession();
+  const utils = trpc.useUtils();
 
   const func = useCallback(
     async (filters: FilterProps): Promise<RepositoryProps[]> => {
-      if (!session?.accessToken) {
-        throw new Error("No authentication token available");
-      }
-
-      const response = await fetch(
-        `${CONFIG.BASE_URL}/api/projects/get_projects`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${session.accessToken}`,
-          },
-          body: JSON.stringify(filters),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch projects");
-      }
-
-      const data: RepositoryProps[] = await response.json();
+      const data = await (utils.client.project.getGithubProjects as any).query({
+        filters: filters as any,
+        options: {
+          sort: "stars" as const,
+          order: "desc" as const,
+          per_page: 30,
+          page: 1,
+        },
+      });
       return data;
     },
-    [session?.accessToken]
+    [utils]
   );
   return func;
 };
