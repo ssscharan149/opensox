@@ -1,5 +1,6 @@
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import prisma from "./prisma.js";
+import type { User } from "@prisma/client";
 
 export async function createContext({
   req,
@@ -9,6 +10,7 @@ export async function createContext({
   res: CreateExpressContextOptions["res"];
   db: typeof prisma;
   ip?: string;
+  user?: User | null;
 }> {
   const ip = req.ip || req.socket.remoteAddress || "unknown";
 
@@ -17,6 +19,7 @@ export async function createContext({
     res,
     db: prisma,
     ip,
+    user: null,
   };
 }
 
