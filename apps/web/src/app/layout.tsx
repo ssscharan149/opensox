@@ -41,18 +41,18 @@ export default async function RootLayout({
       <body
         className={`${dmMed.variable} ${dmReg.variable} antialiased bg-background`}
       >
-        <TRPCProvider>
-          <PostHogProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <SessionWrapper session={session}>{children}</SessionWrapper>
-            </ThemeProvider>
-          </PostHogProvider>
-        </TRPCProvider>
+        <PostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SessionWrapper session={session}>
+              <TRPCProvider>{children}</TRPCProvider>
+            </SessionWrapper>
+          </ThemeProvider>
+        </PostHogProvider>
         <Analytics />
         <SpeedInsights />
         <SupportDropdown />

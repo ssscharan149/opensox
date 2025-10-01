@@ -1,5 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { serverTrpc } from "../trpc-server";
 
 export const authConfig: NextAuthOptions = {
   providers: [
@@ -11,20 +12,12 @@ export const authConfig: NextAuthOptions = {
   callbacks: {
     async signIn({ user, profile }) {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: user.email,
-              firstName: profile?.name,
-              authMethod: "google",
-            }),
-          }
-        );
+        await serverTrpc.auth.googleAuth.mutate({
+          email: user.email!,
+          firstName: profile?.name,
+          authMethod: "google",
+        });
 
-        if (!response.ok) throw new Error("Failed to save user");
         return true;
       } catch (error) {
         console.error("Sign-in error:", error);
@@ -42,21 +35,16 @@ export const authConfig: NextAuthOptions = {
 
     async jwt({ token, account, user }) {
       if (account && user) {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: user.email,
-              firstName: user.name,
-              authMethod: "google",
-            }),
-          }
-        );
-        if (response.ok) {
-          const data = await response.json();
+        try {
+          const data = await serverTrpc.auth.googleAuth.mutate({
+            email: user.email!,
+            firstName: user.name ?? undefined,
+            authMethod: "google",
+          });
+
           token.jwtToken = data.token;
+        } catch (error) {
+          console.error("JWT token error:", error);
         }
       }
       return token;
