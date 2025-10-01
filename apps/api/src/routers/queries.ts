@@ -1,14 +1,9 @@
-import { router, publicProcedure } from '../trpc.js';
+import { router, publicProcedure } from "../trpc.js";
+import { queryService } from "../services/query.service.js";
 
 export const queryRouter = router({
-    // get the total count of fetched queries
-    count: publicProcedure
-    .query(async ({ ctx }) => {
-        const queryCount = await ctx.db.prisma.queryCount.findUnique({
-            where: { id: 1 }
-        });
-        return {
-            total_queries: queryCount?.total_queries.toString() || "0"
-        };
-    })
-})
+  // get the total count of fetched queries
+  count: publicProcedure.query(async ({ ctx }) => {
+    return await queryService.getQueryCount(ctx.db.prisma);
+  }),
+});

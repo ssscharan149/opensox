@@ -1,23 +1,7 @@
 import { router, publicProcedure } from "../trpc.js";
-import dotenv from "dotenv";
-import { graphql } from "@octokit/graphql";
 import { z } from "zod";
-import type {
-  FilterProps,
-  RepositoryProps,
-  GraphQLResponseProps,
-  OptionsTypesProps,
-} from "@opensox/shared";
-
-dotenv.config();
-
-const GH_PAT = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
-
-const graphqlWithAuth = graphql.defaults({
-  headers: {
-    authorization: `token ${GH_PAT}`,
-  },
-});
+import type { RepositoryProps } from "@opensox/shared";
+import { projectService } from "../services/project.service.js";
 
 const filterPropsSchema = z.object({
   language: z.string().optional(),
@@ -54,73 +38,9 @@ export const projectRouter = router({
   getGithubProjects: publicProcedure
     .input(inputSchema)
     .query(async ({ input }): Promise<RepositoryProps[]> => {
-      const queryParts: string[] = [];
-      const filters = input.filters || {};
-      const options = input.options || {};
-
-      if (filters.language) {
-        queryParts.push(`language:${filters.language}`);
-      }
-
-      if (filters.stars) {
-        queryParts.push(`stars:${filters.stars.min}..${filters.stars.max}`);
-      }
-
-      if (filters.forks) {
-        queryParts.push(`forks:${filters.forks.min}..${filters.forks.max}`);
-      }
-
-      if (filters.pushed) {
-        queryParts.push(`pushed:${filters.pushed}`);
-      }
-
-      if (filters.created) {
-        queryParts.push(`created:${filters.created}`);
-      }
-
-      // Default fields to filter contributor friendly repos
-
-      queryParts.push(`is:organization`);
-      queryParts.push(`is:public`);
-      queryParts.push(`fork:true`);
-
-      const searchQueryString = queryParts.join(" ");
-
-      const response: GraphQLResponseProps = await graphqlWithAuth(
-        `
-        query($searchQuery: String!, $first: Int!) {
-            search(
-                query: $searchQuery,
-                type: REPOSITORY,
-                first: $first
-            ) {
-                nodes {
-                    ... on Repository {
-                        id
-                        name
-                        description
-                        url
-                        owner {
-                            avatarUrl
-                        }
-                        issues(states: OPEN) {
-                            totalCount
-                        }
-                        primaryLanguage {
-                            name
-                        }
-                    }
-                }
-                repositoryCount
-            }
-        }
-    `,
-        {
-          searchQuery: searchQueryString,
-          first: options.per_page || 100,
-        }
+      return await projectService.fetchGithubProjects(
+        input.filters as any,
+        input.options as any
       );
-
-      return response.search.nodes;
     }),
 });

@@ -1,12 +1,9 @@
-import { router, publicProcedure } from '../trpc.js';
+import { router, publicProcedure } from "../trpc.js";
+import { userService } from "../services/user.service.js";
 
 export const userRouter = router({
-    // get the total count of users
-    count: publicProcedure
-    .query(async ({ ctx }) => {
-        const userCount = await ctx.db.prisma.user.count();
-        return {
-            total_users: userCount
-        };
-    })
-})
+  // get the total count of users
+  count: publicProcedure.query(async ({ ctx }) => {
+    return await userService.getUserCount(ctx.db.prisma);
+  }),
+});

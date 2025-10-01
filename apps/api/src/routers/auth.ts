@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from "../trpc.js";
 import { z } from "zod";
-import { generateToken } from "../utils/auth.js";
 import { TRPCError } from "@trpc/server";
+import { authService } from "../services/auth.service.js";
 
 const googleAuthSchema = z.object({
   email: z.string().email("Invalid email format"),
@@ -14,27 +14,12 @@ export const authRouter = router({
     .input(googleAuthSchema)
     .mutation(async ({ input, ctx }) => {
       try {
-        const { email, firstName, authMethod } = input;
-
-        const user = await ctx.db.prisma.user.upsert({
-          where: { email },
-          update: {
-            lastLogin: new Date(),
-          },
-          create: {
-            email,
-            firstName: firstName || "Opensox User",
-            authMethod: authMethod || "google",
-            lastLogin: new Date(),
-          },
-        });
-
-        const token = generateToken(email);
-
-        return {
-          user,
-          token,
+        const authInput = {
+          email: input.email,
+          firstName: input.firstName,
+          authMethod: input.authMethod,
         };
+        return await authService.handleGoogleAuth(ctx.db.prisma, authInput);
       } catch (error) {
         if (process.env.NODE_ENV !== "production") {
           console.error("Google auth error:", error);
@@ -47,9 +32,7 @@ export const authRouter = router({
     }),
   getSession: protectedProcedure.query(
     async ({ ctx }: { ctx: { user: any } }) => {
-      return {
-        user: ctx.user,
-      };
+      return authService.getSession(ctx.user);
     }
   ),
 });
