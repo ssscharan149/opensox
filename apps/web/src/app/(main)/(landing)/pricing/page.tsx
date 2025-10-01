@@ -41,8 +41,8 @@ const opensoxFeatures = [
       "A comprehensive sheet of 30+ modules along with detailed videos to give you a clear path to start rocking in open source.",
       "It will contain videos, resouces and hand made docs.",
       <>
-        In each of the 30 steps, you will learn, then apply, If stuck, we'll
-        help and then we'll do an accountability check.{" "}
+        In each of the 30 steps, you will learn, then apply, If stuck,
+        we&apos;ll help and then we&apos;ll do an accountability check.{" "}
         <Link
           href="https://www.youtube.com/playlist?list=PLiWTvT-J4wHhDh-Mngogynfusor-694G-"
           target="_blank"
