@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { authConfig } from "@/lib/auth/config";
 import { SessionWrapper } from "./SessionWrapper";
 import SupportDropdown from "@/components/landing-sections/SupportDropdown";
+import { TRPCProvider } from "@/providers/trpc-provider";
 
 const dmReg = localFont({
   src: "./fonts/DMMono-Regular.ttf",
@@ -47,7 +48,9 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SessionWrapper session={session}>{children}</SessionWrapper>
+            <SessionWrapper session={session}>
+              <TRPCProvider>{children}</TRPCProvider>
+            </SessionWrapper>
           </ThemeProvider>
         </PostHogProvider>
         <Analytics />
