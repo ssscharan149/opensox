@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm turbo build --filter=web...",
+  "installCommand": "pnpm install --frozen-lockfile=false",
+  "framework": "nextjs"
+}
+
