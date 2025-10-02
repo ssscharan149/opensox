@@ -27,13 +27,15 @@ COPY apps/api/tsconfig.json ./apps/api/
 COPY apps/api/prisma ./apps/api/prisma
 
 # Build shared package first
-RUN cd packages/shared && pnpm run build
+WORKDIR /app/packages/shared
+RUN pnpm run build
 
 # Generate Prisma client
-RUN cd apps/api && pnpm exec prisma generate
+WORKDIR /app/apps/api
+RUN pnpm exec prisma generate
 
 # Build API
-RUN cd apps/api && pnpm run build
+RUN pnpm run build
 
 # Production stage
 FROM node:20-slim
@@ -66,7 +68,8 @@ COPY --from=builder /app/apps/api/prisma ./apps/api/prisma
 RUN pnpm install
 
 # Generate Prisma client in production stage
-RUN cd apps/api && pnpm exec prisma generate
+WORKDIR /app/apps/api
+RUN pnpm exec prisma generate
 
 # Remove devDependencies after Prisma generation
 RUN pnpm install --prod
