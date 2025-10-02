@@ -19,7 +19,6 @@ RUN pnpm install
 
 # Copy shared package source (types directory contains the actual source files)
 COPY packages/shared/types ./packages/shared/types
-COPY packages/shared/src ./packages/shared/src
 COPY packages/shared/tsconfig.json ./packages/shared/tsconfig.json
 
 # Copy API source and config
