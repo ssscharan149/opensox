@@ -70,6 +70,9 @@ const whySub = [
     content:
       "After the launch, this $49 offer be removed and Opensox premium will be around ~ $120 for whole year ($10/mo.)",
   },
+  {
+    content: "The price of the dollar is constantly increasing.",
+  },
 ];
 
 const freePlanCard = {
@@ -373,7 +376,7 @@ const SecondaryPricingCard = () => {
                 className="cursor-pointer z-30"
               >
                 <PrimaryButton classname="w-full max-w-[500px] mx-auto font-semibold">
-                  Subscibe
+                  Invest
                 </PrimaryButton>
               </Link>
             </div>

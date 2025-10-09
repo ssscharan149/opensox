@@ -16,13 +16,12 @@ export const CONFIG = {
 export const projectsOfTheWeek = [
   {
     id: "1",
-    name: "mem0ai",
-    description:
-      "Memory for AI Agents; SOTA in AI Agent Memory; Announcing OpenMemory MCP - local and secure memory management.",
-    url: "https://github.com/mem0ai/mem0",
-    avatarUrl: "https://avatars.githubusercontent.com/u/137054526?s=48&v=4",
-    totalIssueCount: 292,
-    primaryLanguage: "Python",
+    name: "Opensox AI",
+    description: "Find the perfect open source project to contribute",
+    url: "https://github.com/apsinghdev/opensox",
+    avatarUrl: "https://avatars.githubusercontent.com/u/109718740?s=48&v=4",
+    totalIssueCount: 13,
+    primaryLanguage: "Typescript",
     popularity: "Higher",
     stage: "Early",
     competition: "Low",
@@ -30,11 +29,12 @@ export const projectsOfTheWeek = [
   },
   {
     id: "2",
-    name: "nocodb",
-    description: "Open Source Airtable Alternative",
+    name: "awesome-sass",
+    description:
+      "Collection of templates using the Alchemyst AI Platform for your next big AI app.",
     url: "https://github.com/nocodb/nocodb",
-    avatarUrl: "https://avatars.githubusercontent.com/u/50206778?s=48&v=4",
-    totalIssueCount: 687,
+    avatarUrl: "https://avatars.githubusercontent.com/u/155486959?s=48&v=4",
+    totalIssueCount: 22,
     primaryLanguage: "Typescript",
     popularity: "Highest",
     stage: "Established",
