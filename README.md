@@ -41,13 +41,13 @@ We love our contributors! Here’s how you can contribute:
 
 ### Setting up locally
 
-Opensox AI’s stack consists of the following elements:
+Opensox AI's stack consists of the following elements:
 
-- A backend written in Express.js, exposing a REST API
+- A backend API built with tRPC and Express.js
 - A frontend written in Next.js and TypeScript
 - A PostgreSQL database
 - A Redis database (in process)
-- What’s for AI? Coming very soon…
+- What's for AI? Coming very soon…
 
 #### Prerequisites
 
@@ -57,9 +57,9 @@ Opensox needs [TypeScript](https://www.typescriptlang.org/download/) and [Node.j
 
 Create environment files for both the backend and the frontend before running the apps.
 
-### Backend (`apps/backend/.env`)
+### Backend (`apps/api/.env`)
 
-Create a file at `apps/backend/.env` with:
+Create a file at `apps/api/.env` with:
 
 ```bash
 # Required
@@ -114,7 +114,7 @@ After creating these files, restart your dev servers so changes take effect.
 Run these steps once your `DATABASE_URL` is set:
 
 ```bash
-cd apps/backend
+cd apps/api
 
 # Generate Prisma client (optional if already generated)
 npx prisma generate
@@ -165,7 +165,7 @@ pnpm run dev
 
 Congrats! Your frontend is running on `localhost:3000`.
 
-3. `cd` into `opensox/apps/backend` and install dependencies
+3. `cd` into `opensox/apps/api` and install dependencies
 
 ```bash
 npm install
@@ -174,12 +174,92 @@ npm install
 Now run the server:
 
 ```bash
-npm run server
+pnpm run dev
 ```
 
-Voila! Your server is running on `localhost:8080`.
+Voila! Your API server is running on `localhost:4000`.
 
 Now you can access your app at `http://localhost:3000`.
+
+## Running the API with Docker
+
+Alternatively, you can run the API server using Docker. A `Dockerfile` is provided in the root directory.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) installed on your machine
+
+### Building and Running
+
+1. Make sure you have your `.env` file set up in `apps/api/.env` (see [Backend environment variables](#backend-appsapienv) section above)
+
+2. From the root directory, build the Docker image:
+
+```bash
+docker build -t opensox-api .
+```
+
+3. Run the container with your environment variables:
+
+```bash
+docker run -p 4000:4000 \
+  --env-file apps/api/.env \
+  opensox-api
+```
+
+Or if you prefer to pass environment variables individually:
+
+```bash
+docker run -p 4000:4000 \
+  -e DATABASE_URL="postgresql://USER:PASSWORD@host.docker.internal:5432/opensox?schema=public" \
+  -e JWT_SECRET="your-secret" \
+  -e PORT=4000 \
+  opensox-api
+```
+
+**Note:** When using Docker, if your database is running on your host machine (not in a container), use `host.docker.internal` instead of `localhost` in your `DATABASE_URL`.
+
+Your API server will be available at `http://localhost:4000`.
+
+### Using Docker Compose (Optional)
+
+For a complete setup with PostgreSQL, you can create a `docker-compose.yml` file:
+
+```yaml
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: opensox
+      POSTGRES_PASSWORD: opensox
+      POSTGRES_DB: opensox
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgresql://opensox:opensox@postgres:5432/opensox?schema=public
+      JWT_SECRET: your-secret-key
+      PORT: 4000
+      NODE_ENV: production
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+```
+
+Then run:
+
+```bash
+docker-compose up -d
+```
 
 ## Our contributors
 
