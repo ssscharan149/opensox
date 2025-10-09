@@ -27,7 +27,6 @@ Opensox AI is a platform designed to help developers quickly discover open-sourc
 - [Prisma](https://www.prisma.io/) – ORM
 - [NextAuth.js](https://next-auth.js.org/) – auth
 - [Turborepo](https://turbo.build/repo) – monorepo
-- [Polar](https://polar.sh/) – payments
 - [Vercel](https://vercel.com/) – deployments
 - [Railway](https://railway.com/) – deployments
 
