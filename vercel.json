@@ -1,6 +1,18 @@
 {
   "buildCommand": "pnpm turbo build --filter=web...",
   "installCommand": "pnpm install --frozen-lockfile=false",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "opensox.in"
+        }
+      ],
+      "destination": "https://opensox.ai/:path*",
+      "permanent": true
+    }
+  ]
 }
-
