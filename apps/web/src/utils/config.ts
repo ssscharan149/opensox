@@ -32,7 +32,7 @@ export const projectsOfTheWeek = [
     name: "awesome-sass",
     description:
       "Collection of templates using the Alchemyst AI Platform for your next big AI app.",
-    url: "https://github.com/nocodb/nocodb",
+    url: "https://github.com/Alchemyst-ai/awesome-saas",
     avatarUrl: "https://avatars.githubusercontent.com/u/155486959?s=48&v=4",
     totalIssueCount: 22,
     primaryLanguage: "Typescript",
