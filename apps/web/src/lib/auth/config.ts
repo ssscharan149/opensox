@@ -1,5 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 import { serverTrpc } from "../trpc-server";
 
 export const authConfig: NextAuthOptions = {
@@ -8,14 +9,21 @@ export const authConfig: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
+    GithubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+      authorization: {
+        params: { scope: "read:user user:email" },
+      },
+    }),
   ],
   callbacks: {
-    async signIn({ user, profile }) {
+    async signIn({ user, profile, account }) {
       try {
         await serverTrpc.auth.googleAuth.mutate({
           email: user.email!,
-          firstName: profile?.name,
-          authMethod: "google",
+          firstName: user.name ?? (profile as any)?.name,
+          authMethod: account?.provider ?? "google",
         });
 
         return true;
@@ -39,7 +47,7 @@ export const authConfig: NextAuthOptions = {
           const data = await serverTrpc.auth.googleAuth.mutate({
             email: user.email!,
             firstName: user.name ?? undefined,
-            authMethod: "google",
+            authMethod: account.provider ?? "google",
           });
 
           token.jwtToken = data.token;
